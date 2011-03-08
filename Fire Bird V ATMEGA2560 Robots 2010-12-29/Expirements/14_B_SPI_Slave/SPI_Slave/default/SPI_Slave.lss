@@ -1,0 +1,317 @@
+
+SPI_Slave.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000188  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          00000002  00800060  00800060  000001fc  2**0
+                  ALLOC
+  2 .debug_aranges 00000020  00000000  00000000  000001fc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_pubnames 0000007e  00000000  00000000  0000021c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   00000123  00000000  00000000  0000029a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 0000009e  00000000  00000000  000003bd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   000001ab  00000000  00000000  0000045b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000070  00000000  00000000  00000608  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    0000010b  00000000  00000000  00000678  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	12 c0       	rjmp	.+36     	; 0x26 <__ctors_end>
+   2:	21 c0       	rjmp	.+66     	; 0x46 <__bad_interrupt>
+   4:	20 c0       	rjmp	.+64     	; 0x46 <__bad_interrupt>
+   6:	1f c0       	rjmp	.+62     	; 0x46 <__bad_interrupt>
+   8:	1e c0       	rjmp	.+60     	; 0x46 <__bad_interrupt>
+   a:	1d c0       	rjmp	.+58     	; 0x46 <__bad_interrupt>
+   c:	1c c0       	rjmp	.+56     	; 0x46 <__bad_interrupt>
+   e:	1b c0       	rjmp	.+54     	; 0x46 <__bad_interrupt>
+  10:	1a c0       	rjmp	.+52     	; 0x46 <__bad_interrupt>
+  12:	19 c0       	rjmp	.+50     	; 0x46 <__bad_interrupt>
+  14:	18 c0       	rjmp	.+48     	; 0x46 <__bad_interrupt>
+  16:	17 c0       	rjmp	.+46     	; 0x46 <__bad_interrupt>
+  18:	16 c0       	rjmp	.+44     	; 0x46 <__bad_interrupt>
+  1a:	15 c0       	rjmp	.+42     	; 0x46 <__bad_interrupt>
+  1c:	14 c0       	rjmp	.+40     	; 0x46 <__bad_interrupt>
+  1e:	13 c0       	rjmp	.+38     	; 0x46 <__bad_interrupt>
+  20:	12 c0       	rjmp	.+36     	; 0x46 <__bad_interrupt>
+  22:	11 c0       	rjmp	.+34     	; 0x46 <__bad_interrupt>
+  24:	10 c0       	rjmp	.+32     	; 0x46 <__bad_interrupt>
+
+00000026 <__ctors_end>:
+  26:	11 24       	eor	r1, r1
+  28:	1f be       	out	0x3f, r1	; 63
+  2a:	cf e5       	ldi	r28, 0x5F	; 95
+  2c:	d4 e0       	ldi	r29, 0x04	; 4
+  2e:	de bf       	out	0x3e, r29	; 62
+  30:	cd bf       	out	0x3d, r28	; 61
+
+00000032 <__do_clear_bss>:
+  32:	10 e0       	ldi	r17, 0x00	; 0
+  34:	a0 e6       	ldi	r26, 0x60	; 96
+  36:	b0 e0       	ldi	r27, 0x00	; 0
+  38:	01 c0       	rjmp	.+2      	; 0x3c <.do_clear_bss_start>
+
+0000003a <.do_clear_bss_loop>:
+  3a:	1d 92       	st	X+, r1
+
+0000003c <.do_clear_bss_start>:
+  3c:	a2 36       	cpi	r26, 0x62	; 98
+  3e:	b1 07       	cpc	r27, r17
+  40:	e1 f7       	brne	.-8      	; 0x3a <.do_clear_bss_loop>
+  42:	81 d0       	rcall	.+258    	; 0x146 <main>
+  44:	9f c0       	rjmp	.+318    	; 0x184 <_exit>
+
+00000046 <__bad_interrupt>:
+  46:	dc cf       	rjmp	.-72     	; 0x0 <__vectors>
+
+00000048 <port_init>:
+unsigned char data;
+unsigned char ADC_Value;
+
+//Port initialization
+void port_init(void)
+{
+  48:	df 93       	push	r29
+  4a:	cf 93       	push	r28
+  4c:	cd b7       	in	r28, 0x3d	; 61
+  4e:	de b7       	in	r29, 0x3e	; 62
+ PORTB = 0x10;
+  50:	e8 e3       	ldi	r30, 0x38	; 56
+  52:	f0 e0       	ldi	r31, 0x00	; 0
+  54:	80 e1       	ldi	r24, 0x10	; 16
+  56:	80 83       	st	Z, r24
+ DDRB  = 0x10;
+  58:	e7 e3       	ldi	r30, 0x37	; 55
+  5a:	f0 e0       	ldi	r31, 0x00	; 0
+  5c:	80 e1       	ldi	r24, 0x10	; 16
+  5e:	80 83       	st	Z, r24
+ PORTC = 0x3F; 
+  60:	e5 e3       	ldi	r30, 0x35	; 53
+  62:	f0 e0       	ldi	r31, 0x00	; 0
+  64:	8f e3       	ldi	r24, 0x3F	; 63
+  66:	80 83       	st	Z, r24
+ DDRC  = 0x00;
+  68:	e4 e3       	ldi	r30, 0x34	; 52
+  6a:	f0 e0       	ldi	r31, 0x00	; 0
+  6c:	10 82       	st	Z, r1
+ PORTD = 0x00;
+  6e:	e2 e3       	ldi	r30, 0x32	; 50
+  70:	f0 e0       	ldi	r31, 0x00	; 0
+  72:	10 82       	st	Z, r1
+ DDRD  = 0xFF;
+  74:	e1 e3       	ldi	r30, 0x31	; 49
+  76:	f0 e0       	ldi	r31, 0x00	; 0
+  78:	8f ef       	ldi	r24, 0xFF	; 255
+  7a:	80 83       	st	Z, r24
+}
+  7c:	cf 91       	pop	r28
+  7e:	df 91       	pop	r29
+  80:	08 95       	ret
+
+00000082 <spi_init>:
+
+//SPI initialize
+void spi_init(void)
+{
+  82:	df 93       	push	r29
+  84:	cf 93       	push	r28
+  86:	cd b7       	in	r28, 0x3d	; 61
+  88:	de b7       	in	r29, 0x3e	; 62
+ SPCR = 0x41; //setup SPI
+  8a:	ed e2       	ldi	r30, 0x2D	; 45
+  8c:	f0 e0       	ldi	r31, 0x00	; 0
+  8e:	81 e4       	ldi	r24, 0x41	; 65
+  90:	80 83       	st	Z, r24
+ SPSR = 0x00; //setup SPI
+  92:	ee e2       	ldi	r30, 0x2E	; 46
+  94:	f0 e0       	ldi	r31, 0x00	; 0
+  96:	10 82       	st	Z, r1
+ SPDR = 0x00;
+  98:	ef e2       	ldi	r30, 0x2F	; 47
+  9a:	f0 e0       	ldi	r31, 0x00	; 0
+  9c:	10 82       	st	Z, r1
+}
+  9e:	cf 91       	pop	r28
+  a0:	df 91       	pop	r29
+  a2:	08 95       	ret
+
+000000a4 <adc_init>:
+
+//ADC initialize
+// Conversion time: 52uS
+void adc_init(void)
+{
+  a4:	df 93       	push	r29
+  a6:	cf 93       	push	r28
+  a8:	cd b7       	in	r28, 0x3d	; 61
+  aa:	de b7       	in	r29, 0x3e	; 62
+ ADCSR = 0x00; //disable adc
+  ac:	e6 e2       	ldi	r30, 0x26	; 38
+  ae:	f0 e0       	ldi	r31, 0x00	; 0
+  b0:	10 82       	st	Z, r1
+ ADMUX = 0x00; //select adc input 0
+  b2:	e7 e2       	ldi	r30, 0x27	; 39
+  b4:	f0 e0       	ldi	r31, 0x00	; 0
+  b6:	10 82       	st	Z, r1
+ ACSR  = 0x80;
+  b8:	e8 e2       	ldi	r30, 0x28	; 40
+  ba:	f0 e0       	ldi	r31, 0x00	; 0
+  bc:	80 e8       	ldi	r24, 0x80	; 128
+  be:	80 83       	st	Z, r24
+ ADCSR = 0xC5;
+  c0:	e6 e2       	ldi	r30, 0x26	; 38
+  c2:	f0 e0       	ldi	r31, 0x00	; 0
+  c4:	85 ec       	ldi	r24, 0xC5	; 197
+  c6:	80 83       	st	Z, r24
+}
+  c8:	cf 91       	pop	r28
+  ca:	df 91       	pop	r29
+  cc:	08 95       	ret
+
+000000ce <ADC_Conversion>:
+
+
+//Function for ADC conversion
+unsigned char ADC_Conversion(unsigned char channel)
+{
+  ce:	df 93       	push	r29
+  d0:	cf 93       	push	r28
+  d2:	00 d0       	rcall	.+0      	; 0xd4 <ADC_Conversion+0x6>
+  d4:	cd b7       	in	r28, 0x3d	; 61
+  d6:	de b7       	in	r29, 0x3e	; 62
+  d8:	8a 83       	std	Y+2, r24	; 0x02
+	unsigned char adc_data = 0;
+  da:	19 82       	std	Y+1, r1	; 0x01
+
+	channel = channel & 0x07;			  //Store only 3 LSB bits
+  dc:	8a 81       	ldd	r24, Y+2	; 0x02
+  de:	87 70       	andi	r24, 0x07	; 7
+  e0:	8a 83       	std	Y+2, r24	; 0x02
+	ADMUX= 0x20 | channel;				  //Select the ADC channel with left adjust select
+  e2:	e7 e2       	ldi	r30, 0x27	; 39
+  e4:	f0 e0       	ldi	r31, 0x00	; 0
+  e6:	8a 81       	ldd	r24, Y+2	; 0x02
+  e8:	80 62       	ori	r24, 0x20	; 32
+  ea:	80 83       	st	Z, r24
+	ADCSRA = ADCSRA | 0x40;			  	  //Set start conversion bit
+  ec:	a6 e2       	ldi	r26, 0x26	; 38
+  ee:	b0 e0       	ldi	r27, 0x00	; 0
+  f0:	e6 e2       	ldi	r30, 0x26	; 38
+  f2:	f0 e0       	ldi	r31, 0x00	; 0
+  f4:	80 81       	ld	r24, Z
+  f6:	80 64       	ori	r24, 0x40	; 64
+  f8:	8c 93       	st	X, r24
+	while((ADCSRA&0x10)==0);	//Wait for ADC conversion to complete
+  fa:	e6 e2       	ldi	r30, 0x26	; 38
+  fc:	f0 e0       	ldi	r31, 0x00	; 0
+  fe:	80 81       	ld	r24, Z
+ 100:	88 2f       	mov	r24, r24
+ 102:	90 e0       	ldi	r25, 0x00	; 0
+ 104:	80 71       	andi	r24, 0x10	; 16
+ 106:	90 70       	andi	r25, 0x00	; 0
+ 108:	00 97       	sbiw	r24, 0x00	; 0
+ 10a:	b9 f3       	breq	.-18     	; 0xfa <ADC_Conversion+0x2c>
+	adc_data = ADCH;
+ 10c:	e5 e2       	ldi	r30, 0x25	; 37
+ 10e:	f0 e0       	ldi	r31, 0x00	; 0
+ 110:	80 81       	ld	r24, Z
+ 112:	89 83       	std	Y+1, r24	; 0x01
+	ADCSRA = ADCSRA|0x10; //clear ADIF (ADC Interrupt Flag) by writing 1 to it
+ 114:	a6 e2       	ldi	r26, 0x26	; 38
+ 116:	b0 e0       	ldi	r27, 0x00	; 0
+ 118:	e6 e2       	ldi	r30, 0x26	; 38
+ 11a:	f0 e0       	ldi	r31, 0x00	; 0
+ 11c:	80 81       	ld	r24, Z
+ 11e:	80 61       	ori	r24, 0x10	; 16
+ 120:	8c 93       	st	X, r24
+	return adc_data; //return the ADC value
+ 122:	89 81       	ldd	r24, Y+1	; 0x01
+}
+ 124:	0f 90       	pop	r0
+ 126:	0f 90       	pop	r0
+ 128:	cf 91       	pop	r28
+ 12a:	df 91       	pop	r29
+ 12c:	08 95       	ret
+
+0000012e <init_devices>:
+
+//Function To Iitialize All The Peripherals
+void init_devices(void)
+{
+ 12e:	df 93       	push	r29
+ 130:	cf 93       	push	r28
+ 132:	cd b7       	in	r28, 0x3d	; 61
+ 134:	de b7       	in	r29, 0x3e	; 62
+ cli(); 			//disable all interrupts
+ 136:	f8 94       	cli
+ port_init();
+ 138:	87 df       	rcall	.-242    	; 0x48 <port_init>
+ spi_init();
+ 13a:	a3 df       	rcall	.-186    	; 0x82 <spi_init>
+ adc_init();
+ 13c:	b3 df       	rcall	.-154    	; 0xa4 <adc_init>
+ sei();				//re-enable interrupts
+ 13e:	78 94       	sei
+}
+ 140:	cf 91       	pop	r28
+ 142:	df 91       	pop	r29
+ 144:	08 95       	ret
+
+00000146 <main>:
+
+
+//Main Function
+int main(void)
+{
+ 146:	df 93       	push	r29
+ 148:	cf 93       	push	r28
+ 14a:	cd b7       	in	r28, 0x3d	; 61
+ 14c:	de b7       	in	r29, 0x3e	; 62
+ init_devices();
+ 14e:	ef df       	rcall	.-34     	; 0x12e <init_devices>
+ 
+ while(1)
+ {
+ while((SPSR & 0x80) == 0x00); //wait for data reception to complete
+ 150:	ee e2       	ldi	r30, 0x2E	; 46
+ 152:	f0 e0       	ldi	r31, 0x00	; 0
+ 154:	80 81       	ld	r24, Z
+ 156:	88 23       	and	r24, r24
+ 158:	dc f7       	brge	.-10     	; 0x150 <main+0xa>
+ data = SPDR;
+ 15a:	ef e2       	ldi	r30, 0x2F	; 47
+ 15c:	f0 e0       	ldi	r31, 0x00	; 0
+ 15e:	80 81       	ld	r24, Z
+ 160:	80 93 61 00 	sts	0x0061, r24
+ //_delay_ms(1);
+ //data = data + 1;
+ ADC_Value = ADC_Conversion(data);
+ 164:	80 91 61 00 	lds	r24, 0x0061
+ 168:	b2 df       	rcall	.-156    	; 0xce <ADC_Conversion>
+ 16a:	80 93 60 00 	sts	0x0060, r24
+ SPDR = ADC_Value;
+ 16e:	ef e2       	ldi	r30, 0x2F	; 47
+ 170:	f0 e0       	ldi	r31, 0x00	; 0
+ 172:	80 91 60 00 	lds	r24, 0x0060
+ 176:	80 83       	st	Z, r24
+ while((SPSR & 0x80) == 0x00); //wait for data transmission to complete
+ 178:	ee e2       	ldi	r30, 0x2E	; 46
+ 17a:	f0 e0       	ldi	r31, 0x00	; 0
+ 17c:	80 81       	ld	r24, Z
+ 17e:	88 23       	and	r24, r24
+ 180:	dc f7       	brge	.-10     	; 0x178 <main+0x32>
+ 182:	e6 cf       	rjmp	.-52     	; 0x150 <main+0xa>
+
+00000184 <_exit>:
+ 184:	f8 94       	cli
+
+00000186 <__stop_program>:
+ 186:	ff cf       	rjmp	.-2      	; 0x186 <__stop_program>

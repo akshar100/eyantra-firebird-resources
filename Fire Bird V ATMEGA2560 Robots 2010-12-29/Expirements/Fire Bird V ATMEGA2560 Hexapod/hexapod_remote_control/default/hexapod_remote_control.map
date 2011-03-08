@@ -1,0 +1,714 @@
+Archive member included because of file (symbol)
+
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_exit.o)
+                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr6/crtm2560.o (exit)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_clear_bss.o)
+                              hexapod_remote_control.o (__do_clear_bss)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_fixunssfsi.o)
+                              hexapod_remote_control.o (__fixunssfsi)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_addsub_sf.o)
+                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_fixunssfsi.o) (__subsf3)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_mul_sf.o)
+                              hexapod_remote_control.o (__mulsf3)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_div_sf.o)
+                              hexapod_remote_control.o (__divsf3)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_gt_sf.o)
+                              hexapod_remote_control.o (__gtsf2)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_ge_sf.o)
+                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_fixunssfsi.o) (__gesf2)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_lt_sf.o)
+                              hexapod_remote_control.o (__ltsf2)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_si_to_sf.o)
+                              hexapod_remote_control.o (__floatsisf)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_sf_to_si.o)
+                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_fixunssfsi.o) (__fixsfsi)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_thenan_sf.o)
+                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_addsub_sf.o) (__thenan_sf)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_prologue.o)
+                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_addsub_sf.o) (__prologue_saves__)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_epilogue.o)
+                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_addsub_sf.o) (__epilogue_restores__)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_clzsi2.o)
+                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_si_to_sf.o) (__clzsi2)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_pack_sf.o)
+                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_addsub_sf.o) (__pack_f)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_unpack_sf.o)
+                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_addsub_sf.o) (__unpack_f)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_fpcmp_parts_sf.o)
+                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_gt_sf.o) (__fpcmp_parts_f)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_clz.o)
+                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_clzsi2.o) (__clz_tab)
+
+Allocating common symbols
+Common symbol       size              file
+
+angle_lower_byte_3B
+                    0x1               hexapod_remote_control.o
+angle_lower_byte_2A
+                    0x1               hexapod_remote_control.o
+angle_upper_byte_5A
+                    0x1               hexapod_remote_control.o
+angle_upper_byte_2B
+                    0x1               hexapod_remote_control.o
+angle_upper_byte_3B
+                    0x1               hexapod_remote_control.o
+angle_upper_byte_1A
+                    0x1               hexapod_remote_control.o
+angle_upper_byte_3C
+                    0x1               hexapod_remote_control.o
+angle_upper_byte_6B
+                    0x1               hexapod_remote_control.o
+angle_upper_byte_5B
+                    0x1               hexapod_remote_control.o
+angle_lower_byte_6B
+                    0x1               hexapod_remote_control.o
+FBV_ctrl_data       0x8               hexapod_remote_control.o
+angle_lower_byte_3A
+                    0x1               hexapod_remote_control.o
+angle_lower_byte_5B
+                    0x1               hexapod_remote_control.o
+angle_lower_byte_4A
+                    0x1               hexapod_remote_control.o
+angle_upper_byte_6C
+                    0x1               hexapod_remote_control.o
+angle_lower_byte_1B
+                    0x1               hexapod_remote_control.o
+angle_lower_byte_2B
+                    0x1               hexapod_remote_control.o
+angle_upper_byte_6A
+                    0x1               hexapod_remote_control.o
+angle_lower_byte_6A
+                    0x1               hexapod_remote_control.o
+angle_lower_byte_5C
+                    0x1               hexapod_remote_control.o
+angle_lower_byte_1A
+                    0x1               hexapod_remote_control.o
+angle_upper_byte_2C
+                    0x1               hexapod_remote_control.o
+angle_lower_byte_4C
+                    0x1               hexapod_remote_control.o
+angle_upper_byte_1C
+                    0x1               hexapod_remote_control.o
+angle_upper_byte_4B
+                    0x1               hexapod_remote_control.o
+angle_upper_byte_5C
+                    0x1               hexapod_remote_control.o
+angle_upper_byte_3A
+                    0x1               hexapod_remote_control.o
+angle_upper_byte_2A
+                    0x1               hexapod_remote_control.o
+angle_upper_byte_1B
+                    0x1               hexapod_remote_control.o
+angle_upper_byte_4A
+                    0x1               hexapod_remote_control.o
+angle_lower_byte_6C
+                    0x1               hexapod_remote_control.o
+angle_lower_byte_5A
+                    0x1               hexapod_remote_control.o
+angle_lower_byte_1C
+                    0x1               hexapod_remote_control.o
+angle_upper_byte_4C
+                    0x1               hexapod_remote_control.o
+angle_lower_byte_2C
+                    0x1               hexapod_remote_control.o
+angle_lower_byte_4B
+                    0x1               hexapod_remote_control.o
+angle_lower_byte_3C
+                    0x1               hexapod_remote_control.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00100000         xr
+data             0x00800200         0x0000fe00         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800200
+LOAD c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr6/crtm2560.o
+LOAD hexapod_remote_control.o
+LOAD c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a
+LOAD c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr6\libc.a
+LOAD c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000     0x47bc
+ *(.vectors)
+ .vectors       0x00000000       0xe4 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr6/crtm2560.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x000000e4                . = ALIGN (0x2)
+                0x000000e4                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x000000e4        0x0 linker stubs
+ *(.trampolines*)
+                0x000000e4                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x000000e4                __ctors_start = .
+ *(.ctors)
+                0x000000e4                __ctors_end = .
+                0x000000e4                __dtors_start = .
+ *(.dtors)
+                0x000000e4                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x000000e4        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr6/crtm2560.o
+                0x000000e4                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x000000e4       0x10 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr6/crtm2560.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x000000f4       0x1a c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr6/crtm2560.o
+                0x000000f4                __do_copy_data
+ .init4         0x0000010e       0x10 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_clear_bss.o)
+                0x0000010e                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x0000011e        0x8 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr6/crtm2560.o
+ *(.init9)
+ *(.text)
+ .text          0x00000126        0x4 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr6/crtm2560.o
+                0x00000126                __vector_38
+                0x00000126                __vector_22
+                0x00000126                __vector_28
+                0x00000126                __vector_1
+                0x00000126                __vector_32
+                0x00000126                __vector_34
+                0x00000126                __vector_24
+                0x00000126                __vector_12
+                0x00000126                __vector_55
+                0x00000126                __vector_46
+                0x00000126                __bad_interrupt
+                0x00000126                __vector_6
+                0x00000126                __vector_31
+                0x00000126                __vector_35
+                0x00000126                __vector_39
+                0x00000126                __vector_3
+                0x00000126                __vector_23
+                0x00000126                __vector_30
+                0x00000126                __vector_45
+                0x00000126                __vector_11
+                0x00000126                __vector_54
+                0x00000126                __vector_13
+                0x00000126                __vector_56
+                0x00000126                __vector_7
+                0x00000126                __vector_49
+                0x00000126                __vector_41
+                0x00000126                __vector_43
+                0x00000126                __vector_27
+                0x00000126                __vector_5
+                0x00000126                __vector_33
+                0x00000126                __vector_47
+                0x00000126                __vector_52
+                0x00000126                __vector_37
+                0x00000126                __vector_4
+                0x00000126                __vector_44
+                0x00000126                __vector_51
+                0x00000126                __vector_9
+                0x00000126                __vector_2
+                0x00000126                __vector_21
+                0x00000126                __vector_15
+                0x00000126                __vector_36
+                0x00000126                __vector_29
+                0x00000126                __vector_40
+                0x00000126                __vector_8
+                0x00000126                __vector_26
+                0x00000126                __vector_48
+                0x00000126                __vector_14
+                0x00000126                __vector_53
+                0x00000126                __vector_10
+                0x00000126                __vector_50
+                0x00000126                __vector_16
+                0x00000126                __vector_42
+ .text          0x0000012a     0x38ba hexapod_remote_control.o
+                0x00000d60                angle_2C
+                0x00000d8e                angle_3A
+                0x0000067e                set_6B
+                0x00000ea2                angle_5A
+                0x000004be                set_3C
+                0x000005d6                set_5B
+                0x00001194                robot_stand_position
+                0x000032ea                back
+                0x0000103a                angle_pan_servo_pod
+                0x00000566                set_4C
+                0x000002e2                reset_1A
+                0x000006ee                set_tilt_servo_pod
+                0x00002836                even_B_servo_up_90
+                0x00000d04                angle_2A
+                0x00000f88                angle_6C
+                0x00000486                set_3B
+                0x000006d2                reset_tilt_servo_pod
+                0x0000036e                set_1C
+                0x00000dea                angle_3C
+                0x0000120e                fwd_front_step
+                0x00000cd6                angle_1C
+                0x00000e18                angle_4A
+                0x00000582                reset_5A
+                0x000005f2                reset_5C
+                0x00001d02                back_front_step
+                0x000004da                reset_4A
+                0x0000018c                buzzer_pin_config
+                0x00002cc4                counter_clock_wise_step
+                0x00000fb6                angle_tilt_servo_pod
+                0x000006b6                set_6C
+                0x0000020a                timer1_init
+                0x00002816                even_A_servo_135
+                0x00002856                even_B_servo_down_125
+                0x0000111a                walk_stroke
+                0x0000336a                __vector_25
+                0x00000f2c                angle_6A
+                0x000002aa                servo_on
+                0x000028f6                clock_wise_step
+                0x000004a2                reset_3C
+                0x0000060e                set_5C
+                0x00000726                set_pan_servo_pod
+                0x00003446                init_devices
+                0x00000646                set_6A
+                0x000003fa                reset_2C
+                0x00000c7a                angle_1A
+                0x00000f5a                angle_6B
+                0x00000742                __vector_17
+                0x000008a2                __vector_19
+                0x000004f6                set_4A
+                0x0000031a                reset_1B
+                0x0000069a                reset_6C
+                0x00000336                set_1B
+                0x000031ae                robot_rotate_counterclockwise
+                0x00002876                odd_A_servo_45
+                0x000002c6                servo_off
+                0x0000044e                set_3A
+                0x00000272                uart0_init
+                0x000001e0                buzzer_off
+                0x0000070a                reset_pan_servo_pod
+                0x00000416                set_2C
+                0x0000012a                servo_pin_config
+                0x00000ca8                angle_1B
+                0x00000e74                angle_4C
+                0x000032ca                forward
+                0x00000e46                angle_4B
+                0x0000330a                remote_control
+                0x0000038a                reset_2A
+                0x000010a0                robot_arm_calibration
+                0x0000059e                set_5A
+                0x00002896                odd_A_servo_135
+                0x000003a6                set_2A
+                0x00000512                reset_4B
+                0x00003470                main
+                0x00003092                robot_rotate_clockwise
+                0x000001b6                buzzer_on
+                0x00000ed0                angle_5B
+                0x00000432                reset_3A
+                0x00000352                reset_1C
+                0x00000efe                angle_5C
+                0x00000c0e                angle_value_calculation
+                0x00000d32                angle_2B
+                0x0000052e                set_4B
+                0x000028d6                odd_B_servo_down_55
+                0x00000dbc                angle_3B
+                0x00000662                reset_6B
+                0x000028b6                odd_B_servo_up_90
+                0x000005ba                reset_5B
+                0x000002fe                set_1A
+                0x0000062a                reset_6A
+                0x000003de                set_2B
+                0x0000054a                reset_4C
+                0x000027f6                even_A_servo_45
+                0x000007f2                __vector_18
+                0x000003c2                reset_2B
+                0x00000946                __vector_20
+                0x0000046a                reset_3B
+ .text          0x000039e4        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_exit.o)
+ .text          0x000039e4        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_clear_bss.o)
+ .text          0x000039e4       0x58 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_fixunssfsi.o)
+                0x000039e4                __fixunssfsi
+ .text          0x00003a3c      0x354 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_addsub_sf.o)
+                0x00003cd4                __subsf3
+                0x00003d36                __addsf3
+ .text          0x00003d90      0x1f4 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_mul_sf.o)
+                0x00003d90                __mulsf3
+ .text          0x00003f84      0x158 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_div_sf.o)
+                0x00003f84                __divsf3
+ .text          0x000040dc       0x60 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_gt_sf.o)
+                0x000040dc                __gtsf2
+ .text          0x0000413c       0x60 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_ge_sf.o)
+                0x0000413c                __gesf2
+ .text          0x0000419c       0x60 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_lt_sf.o)
+                0x0000419c                __ltsf2
+ .text          0x000041fc       0xbc c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_si_to_sf.o)
+                0x000041fc                __floatsisf
+ .text          0x000042b8       0xa8 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_sf_to_si.o)
+                0x000042b8                __fixsfsi
+ .text          0x00004360        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_thenan_sf.o)
+ .text          0x00004360        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_prologue.o)
+ .text          0x00004360        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_epilogue.o)
+ .text          0x00004360       0x9e c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_clzsi2.o)
+                0x00004360                __clzsi2
+ .text          0x000043fe      0x1aa c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_pack_sf.o)
+                0x000043fe                __pack_f
+ .text          0x000045a8       0xf0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_unpack_sf.o)
+                0x000045a8                __unpack_f
+ .text          0x00004698       0xb2 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_fpcmp_parts_sf.o)
+                0x00004698                __fpcmp_parts_f
+ .text          0x0000474a        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_clz.o)
+                0x0000474a                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x0000474a        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_exit.o)
+ .text.libgcc   0x0000474a        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x0000474a       0x38 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_prologue.o)
+                0x0000474a                __prologue_saves__
+ .text.libgcc   0x00004782       0x36 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_epilogue.o)
+                0x00004782                __epilogue_restores__
+                0x000047b8                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x000047b8        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_exit.o)
+                0x000047b8                exit
+                0x000047b8                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x000047b8        0x4 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_exit.o)
+ *(.fini0)
+                0x000047bc                _etext = .
+
+.data           0x00800200      0x10c load address 0x000047bc
+                0x00800200                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800200        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr6/crtm2560.o
+ .data          0x00800200        0x3 hexapod_remote_control.o
+                0x00800200                angle_lower_byte_pan_servo_pod
+                0x00800201                angle_lower_byte_tilt_servo_pod
+ .data          0x00800203        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_exit.o)
+ .data          0x00800203        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_clear_bss.o)
+ .data          0x00800203        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_fixunssfsi.o)
+ .data          0x00800203        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_addsub_sf.o)
+ .data          0x00800203        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_mul_sf.o)
+ .data          0x00800203        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_div_sf.o)
+ .data          0x00800203        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_gt_sf.o)
+ .data          0x00800203        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_ge_sf.o)
+ .data          0x00800203        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_lt_sf.o)
+ .data          0x00800203        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_si_to_sf.o)
+ .data          0x00800203        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_sf_to_si.o)
+ .data          0x00800203        0x8 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_thenan_sf.o)
+                0x00800203                __thenan_sf
+ .data          0x0080020b        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_prologue.o)
+ .data          0x0080020b        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_epilogue.o)
+ .data          0x0080020b        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_clzsi2.o)
+ .data          0x0080020b        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_pack_sf.o)
+ .data          0x0080020b        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_unpack_sf.o)
+ .data          0x0080020b        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_fpcmp_parts_sf.o)
+ .data          0x0080020b      0x100 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_clz.o)
+                0x0080020b                __clz_tab
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x0080030c                . = ALIGN (0x2)
+ *fill*         0x0080030b        0x1 00
+                0x0080030c                _edata = .
+                0x0080030c                PROVIDE (__data_end, .)
+
+.bss            0x0080030c       0x3c
+                0x0080030c                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x0080030c        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr6/crtm2560.o
+ .bss           0x0080030c       0x10 hexapod_remote_control.o
+                0x0080030c                arm_number
+                0x00800316                flag2
+                0x00800318                communication_proper_count
+                0x00800311                angle_upper_byte_tilt_servo_pod
+                0x0080030e                angle_lower_byte
+                0x00800315                flag1
+                0x00800312                motion_busy
+                0x0080030d                angle_upper_byte
+                0x00800317                flag3
+                0x00800313                serial_communication_interval
+                0x0080030f                degree
+                0x00800310                angle_upper_byte_pan_servo_pod
+ .bss           0x0080031c        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_exit.o)
+ .bss           0x0080031c        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_clear_bss.o)
+ .bss           0x0080031c        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_fixunssfsi.o)
+ .bss           0x0080031c        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_addsub_sf.o)
+ .bss           0x0080031c        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_mul_sf.o)
+ .bss           0x0080031c        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_div_sf.o)
+ .bss           0x0080031c        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_gt_sf.o)
+ .bss           0x0080031c        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_ge_sf.o)
+ .bss           0x0080031c        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_lt_sf.o)
+ .bss           0x0080031c        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_si_to_sf.o)
+ .bss           0x0080031c        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_sf_to_si.o)
+ .bss           0x0080031c        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_thenan_sf.o)
+ .bss           0x0080031c        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_prologue.o)
+ .bss           0x0080031c        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_epilogue.o)
+ .bss           0x0080031c        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_clzsi2.o)
+ .bss           0x0080031c        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_pack_sf.o)
+ .bss           0x0080031c        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_unpack_sf.o)
+ .bss           0x0080031c        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_fpcmp_parts_sf.o)
+ .bss           0x0080031c        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_clz.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x0080031c       0x2c hexapod_remote_control.o
+                0x0080031c                angle_lower_byte_3B
+                0x0080031d                angle_lower_byte_2A
+                0x0080031e                angle_upper_byte_5A
+                0x0080031f                angle_upper_byte_2B
+                0x00800320                angle_upper_byte_3B
+                0x00800321                angle_upper_byte_1A
+                0x00800322                angle_upper_byte_3C
+                0x00800323                angle_upper_byte_6B
+                0x00800324                angle_upper_byte_5B
+                0x00800325                angle_lower_byte_6B
+                0x00800326                FBV_ctrl_data
+                0x0080032e                angle_lower_byte_3A
+                0x0080032f                angle_lower_byte_5B
+                0x00800330                angle_lower_byte_4A
+                0x00800331                angle_upper_byte_6C
+                0x00800332                angle_lower_byte_1B
+                0x00800333                angle_lower_byte_2B
+                0x00800334                angle_upper_byte_6A
+                0x00800335                angle_lower_byte_6A
+                0x00800336                angle_lower_byte_5C
+                0x00800337                angle_lower_byte_1A
+                0x00800338                angle_upper_byte_2C
+                0x00800339                angle_lower_byte_4C
+                0x0080033a                angle_upper_byte_1C
+                0x0080033b                angle_upper_byte_4B
+                0x0080033c                angle_upper_byte_5C
+                0x0080033d                angle_upper_byte_3A
+                0x0080033e                angle_upper_byte_2A
+                0x0080033f                angle_upper_byte_1B
+                0x00800340                angle_upper_byte_4A
+                0x00800341                angle_lower_byte_6C
+                0x00800342                angle_lower_byte_5A
+                0x00800343                angle_lower_byte_1C
+                0x00800344                angle_upper_byte_4C
+                0x00800345                angle_lower_byte_2C
+                0x00800346                angle_lower_byte_4B
+                0x00800347                angle_lower_byte_3C
+                0x00800348                PROVIDE (__bss_end, .)
+                0x000047bc                __data_load_start = LOADADDR (.data)
+                0x000048c8                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x00800348        0x0
+                0x00800348                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x00800348                PROVIDE (__noinit_end, .)
+                0x00800348                _end = .
+                0x00800348                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0x20
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 hexapod_remote_control.o
+
+.debug_pubnames
+                0x00000000      0xaa4
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000      0xaa4 hexapod_remote_control.o
+
+.debug_info     0x00000000     0x1873
+ *(.debug_info)
+ .debug_info    0x00000000     0x1873 hexapod_remote_control.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0x182
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x182 hexapod_remote_control.o
+
+.debug_line     0x00000000     0x1e78
+ *(.debug_line)
+ .debug_line    0x00000000     0x1e78 hexapod_remote_control.o
+
+.debug_frame    0x00000000      0x610
+ *(.debug_frame)
+ .debug_frame   0x00000000      0x610 hexapod_remote_control.o
+
+.debug_str      0x00000000      0x8fb
+ *(.debug_str)
+ .debug_str     0x00000000      0x8fb hexapod_remote_control.o
+                                0x9e2 (size before relaxing)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(hexapod_remote_control.elf elf32-avr)
+LOAD linker stubs

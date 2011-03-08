@@ -1,0 +1,346 @@
+
+IO_Interfacing.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000242  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .debug_aranges 00000020  00000000  00000000  00000296  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  2 .debug_pubnames 000000a1  00000000  00000000  000002b6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_info   00000128  00000000  00000000  00000357  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_abbrev 0000007c  00000000  00000000  0000047f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_line   000001a0  00000000  00000000  000004fb  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_frame  00000090  00000000  00000000  0000069c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_str    0000013c  00000000  00000000  0000072c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 72 00 	jmp	0xe4	; 0xe4 <__ctors_end>
+   4:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+   8:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+   c:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  10:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  14:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  18:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  1c:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  20:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  24:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  28:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  2c:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  30:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  34:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  38:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  3c:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  40:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  44:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  48:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  4c:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  50:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  54:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  58:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  5c:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  60:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  64:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  68:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  6c:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  70:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  74:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  78:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  7c:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  80:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  84:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  88:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  8c:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  90:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  94:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  98:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  9c:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  a0:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  a4:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  a8:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  ac:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  b0:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  b4:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  b8:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  bc:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  c0:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  c4:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  c8:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  cc:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  d0:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  d4:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  d8:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  dc:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+  e0:	0c 94 8b 00 	jmp	0x116	; 0x116 <__bad_interrupt>
+
+000000e4 <__ctors_end>:
+  e4:	11 24       	eor	r1, r1
+  e6:	1f be       	out	0x3f, r1	; 63
+  e8:	cf ef       	ldi	r28, 0xFF	; 255
+  ea:	d1 e2       	ldi	r29, 0x21	; 33
+  ec:	de bf       	out	0x3e, r29	; 62
+  ee:	cd bf       	out	0x3d, r28	; 61
+  f0:	00 e0       	ldi	r16, 0x00	; 0
+  f2:	0c bf       	out	0x3c, r16	; 60
+
+000000f4 <__do_copy_data>:
+  f4:	12 e0       	ldi	r17, 0x02	; 2
+  f6:	a0 e0       	ldi	r26, 0x00	; 0
+  f8:	b2 e0       	ldi	r27, 0x02	; 2
+  fa:	e2 e4       	ldi	r30, 0x42	; 66
+  fc:	f2 e0       	ldi	r31, 0x02	; 2
+  fe:	00 e0       	ldi	r16, 0x00	; 0
+ 100:	0b bf       	out	0x3b, r16	; 59
+ 102:	02 c0       	rjmp	.+4      	; 0x108 <__do_copy_data+0x14>
+ 104:	07 90       	elpm	r0, Z+
+ 106:	0d 92       	st	X+, r0
+ 108:	a0 30       	cpi	r26, 0x00	; 0
+ 10a:	b1 07       	cpc	r27, r17
+ 10c:	d9 f7       	brne	.-10     	; 0x104 <__do_copy_data+0x10>
+ 10e:	0e 94 07 01 	call	0x20e	; 0x20e <main>
+ 112:	0c 94 1f 01 	jmp	0x23e	; 0x23e <_exit>
+
+00000116 <__bad_interrupt>:
+ 116:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000011a <buzzer_pin_config>:
+#include <avr/interrupt.h>
+#include <util/delay.h>
+
+//Function to initialize Buzzer 
+void buzzer_pin_config (void)
+{
+ 11a:	df 93       	push	r29
+ 11c:	cf 93       	push	r28
+ 11e:	cd b7       	in	r28, 0x3d	; 61
+ 120:	de b7       	in	r29, 0x3e	; 62
+ DDRC = DDRC | 0x08;		//Setting PORTC 3 as outpt
+ 122:	a7 e2       	ldi	r26, 0x27	; 39
+ 124:	b0 e0       	ldi	r27, 0x00	; 0
+ 126:	e7 e2       	ldi	r30, 0x27	; 39
+ 128:	f0 e0       	ldi	r31, 0x00	; 0
+ 12a:	80 81       	ld	r24, Z
+ 12c:	88 60       	ori	r24, 0x08	; 8
+ 12e:	8c 93       	st	X, r24
+ PORTC = PORTC & 0xF7;		//Setting PORTC 3 logic low to turnoff buzzer
+ 130:	a8 e2       	ldi	r26, 0x28	; 40
+ 132:	b0 e0       	ldi	r27, 0x00	; 0
+ 134:	e8 e2       	ldi	r30, 0x28	; 40
+ 136:	f0 e0       	ldi	r31, 0x00	; 0
+ 138:	80 81       	ld	r24, Z
+ 13a:	87 7f       	andi	r24, 0xF7	; 247
+ 13c:	8c 93       	st	X, r24
+}
+ 13e:	cf 91       	pop	r28
+ 140:	df 91       	pop	r29
+ 142:	08 95       	ret
+
+00000144 <interrupt_switch_config>:
+
+//Function to configure Interrupt switch
+void interrupt_switch_config (void)
+{
+ 144:	df 93       	push	r29
+ 146:	cf 93       	push	r28
+ 148:	cd b7       	in	r28, 0x3d	; 61
+ 14a:	de b7       	in	r29, 0x3e	; 62
+ DDRE = DDRE & 0x7F;  //PORTE 7 pin set as input  
+ 14c:	ad e2       	ldi	r26, 0x2D	; 45
+ 14e:	b0 e0       	ldi	r27, 0x00	; 0
+ 150:	ed e2       	ldi	r30, 0x2D	; 45
+ 152:	f0 e0       	ldi	r31, 0x00	; 0
+ 154:	80 81       	ld	r24, Z
+ 156:	8f 77       	andi	r24, 0x7F	; 127
+ 158:	8c 93       	st	X, r24
+ PORTE = PORTE | 0x80; //PORTE7 internal pull-up enabled
+ 15a:	ae e2       	ldi	r26, 0x2E	; 46
+ 15c:	b0 e0       	ldi	r27, 0x00	; 0
+ 15e:	ee e2       	ldi	r30, 0x2E	; 46
+ 160:	f0 e0       	ldi	r31, 0x00	; 0
+ 162:	80 81       	ld	r24, Z
+ 164:	80 68       	ori	r24, 0x80	; 128
+ 166:	8c 93       	st	X, r24
+}
+ 168:	cf 91       	pop	r28
+ 16a:	df 91       	pop	r29
+ 16c:	08 95       	ret
+
+0000016e <LED_bargraph_config>:
+
+//Function to configure LDD bargraph display
+void LED_bargraph_config (void)
+{
+ 16e:	df 93       	push	r29
+ 170:	cf 93       	push	r28
+ 172:	cd b7       	in	r28, 0x3d	; 61
+ 174:	de b7       	in	r29, 0x3e	; 62
+ DDRJ = 0xFF;  //PORT J is configured as output
+ 176:	e4 e0       	ldi	r30, 0x04	; 4
+ 178:	f1 e0       	ldi	r31, 0x01	; 1
+ 17a:	8f ef       	ldi	r24, 0xFF	; 255
+ 17c:	80 83       	st	Z, r24
+ PORTJ = 0x00; //Output is set to 0
+ 17e:	e5 e0       	ldi	r30, 0x05	; 5
+ 180:	f1 e0       	ldi	r31, 0x01	; 1
+ 182:	10 82       	st	Z, r1
+}
+ 184:	cf 91       	pop	r28
+ 186:	df 91       	pop	r29
+ 188:	08 95       	ret
+
+0000018a <port_init>:
+
+//Function to Initialize PORTS
+void port_init (void)
+{
+ 18a:	df 93       	push	r29
+ 18c:	cf 93       	push	r28
+ 18e:	cd b7       	in	r28, 0x3d	; 61
+ 190:	de b7       	in	r29, 0x3e	; 62
+ buzzer_pin_config();
+ 192:	0e 94 8d 00 	call	0x11a	; 0x11a <buzzer_pin_config>
+ interrupt_switch_config();
+ 196:	0e 94 a2 00 	call	0x144	; 0x144 <interrupt_switch_config>
+ LED_bargraph_config();
+ 19a:	0e 94 b7 00 	call	0x16e	; 0x16e <LED_bargraph_config>
+}
+ 19e:	cf 91       	pop	r28
+ 1a0:	df 91       	pop	r29
+ 1a2:	08 95       	ret
+
+000001a4 <buzzer_on>:
+
+void buzzer_on (void)
+{
+ 1a4:	df 93       	push	r29
+ 1a6:	cf 93       	push	r28
+ 1a8:	0f 92       	push	r0
+ 1aa:	cd b7       	in	r28, 0x3d	; 61
+ 1ac:	de b7       	in	r29, 0x3e	; 62
+ unsigned char port_restore = 0;
+ 1ae:	19 82       	std	Y+1, r1	; 0x01
+ port_restore = PINC;
+ 1b0:	e6 e2       	ldi	r30, 0x26	; 38
+ 1b2:	f0 e0       	ldi	r31, 0x00	; 0
+ 1b4:	80 81       	ld	r24, Z
+ 1b6:	89 83       	std	Y+1, r24	; 0x01
+ port_restore = port_restore | 0x08;
+ 1b8:	89 81       	ldd	r24, Y+1	; 0x01
+ 1ba:	88 60       	ori	r24, 0x08	; 8
+ 1bc:	89 83       	std	Y+1, r24	; 0x01
+ PORTC = port_restore;
+ 1be:	e8 e2       	ldi	r30, 0x28	; 40
+ 1c0:	f0 e0       	ldi	r31, 0x00	; 0
+ 1c2:	89 81       	ldd	r24, Y+1	; 0x01
+ 1c4:	80 83       	st	Z, r24
+}
+ 1c6:	0f 90       	pop	r0
+ 1c8:	cf 91       	pop	r28
+ 1ca:	df 91       	pop	r29
+ 1cc:	08 95       	ret
+
+000001ce <buzzer_off>:
+
+void buzzer_off (void)
+{
+ 1ce:	df 93       	push	r29
+ 1d0:	cf 93       	push	r28
+ 1d2:	0f 92       	push	r0
+ 1d4:	cd b7       	in	r28, 0x3d	; 61
+ 1d6:	de b7       	in	r29, 0x3e	; 62
+ unsigned char port_restore = 0;
+ 1d8:	19 82       	std	Y+1, r1	; 0x01
+ port_restore = PINC;
+ 1da:	e6 e2       	ldi	r30, 0x26	; 38
+ 1dc:	f0 e0       	ldi	r31, 0x00	; 0
+ 1de:	80 81       	ld	r24, Z
+ 1e0:	89 83       	std	Y+1, r24	; 0x01
+ port_restore = port_restore & 0xF7;
+ 1e2:	89 81       	ldd	r24, Y+1	; 0x01
+ 1e4:	87 7f       	andi	r24, 0xF7	; 247
+ 1e6:	89 83       	std	Y+1, r24	; 0x01
+ PORTC = port_restore;
+ 1e8:	e8 e2       	ldi	r30, 0x28	; 40
+ 1ea:	f0 e0       	ldi	r31, 0x00	; 0
+ 1ec:	89 81       	ldd	r24, Y+1	; 0x01
+ 1ee:	80 83       	st	Z, r24
+}
+ 1f0:	0f 90       	pop	r0
+ 1f2:	cf 91       	pop	r28
+ 1f4:	df 91       	pop	r29
+ 1f6:	08 95       	ret
+
+000001f8 <init_devices>:
+
+void init_devices (void)
+{
+ 1f8:	df 93       	push	r29
+ 1fa:	cf 93       	push	r28
+ 1fc:	cd b7       	in	r28, 0x3d	; 61
+ 1fe:	de b7       	in	r29, 0x3e	; 62
+ cli(); //Clears the global interrupts
+ 200:	f8 94       	cli
+ port_init();
+ 202:	0e 94 c5 00 	call	0x18a	; 0x18a <port_init>
+ sei(); //Enables the global interrupts
+ 206:	78 94       	sei
+}
+ 208:	cf 91       	pop	r28
+ 20a:	df 91       	pop	r29
+ 20c:	08 95       	ret
+
+0000020e <main>:
+
+
+
+//Main Function
+int main(void)
+{
+ 20e:	df 93       	push	r29
+ 210:	cf 93       	push	r28
+ 212:	cd b7       	in	r28, 0x3d	; 61
+ 214:	de b7       	in	r29, 0x3e	; 62
+	init_devices();
+ 216:	0e 94 fc 00 	call	0x1f8	; 0x1f8 <init_devices>
+	while(1)
+	{
+	if((PINE & 0x80) == 0x80) //switch is not pressed
+ 21a:	ec e2       	ldi	r30, 0x2C	; 44
+ 21c:	f0 e0       	ldi	r31, 0x00	; 0
+ 21e:	80 81       	ld	r24, Z
+ 220:	88 23       	and	r24, r24
+ 222:	34 f4       	brge	.+12     	; 0x230 <main+0x22>
+		{
+			buzzer_off(); //Turn off buzzer
+ 224:	0e 94 e7 00 	call	0x1ce	; 0x1ce <buzzer_off>
+			PORTJ = 0x00; //Turn off bargraph LEDs			
+ 228:	e5 e0       	ldi	r30, 0x05	; 5
+ 22a:	f1 e0       	ldi	r31, 0x01	; 1
+ 22c:	10 82       	st	Z, r1
+ 22e:	f5 cf       	rjmp	.-22     	; 0x21a <main+0xc>
+		}
+	else
+		{
+			
+			buzzer_on(); //Turn on buzzer
+ 230:	0e 94 d2 00 	call	0x1a4	; 0x1a4 <buzzer_on>
+			PORTJ = 0xFF; //Turn on bargraph LEDs
+ 234:	e5 e0       	ldi	r30, 0x05	; 5
+ 236:	f1 e0       	ldi	r31, 0x01	; 1
+ 238:	8f ef       	ldi	r24, 0xFF	; 255
+ 23a:	80 83       	st	Z, r24
+ 23c:	ee cf       	rjmp	.-36     	; 0x21a <main+0xc>
+
+0000023e <_exit>:
+ 23e:	f8 94       	cli
+
+00000240 <__stop_program>:
+ 240:	ff cf       	rjmp	.-2      	; 0x240 <__stop_program>
