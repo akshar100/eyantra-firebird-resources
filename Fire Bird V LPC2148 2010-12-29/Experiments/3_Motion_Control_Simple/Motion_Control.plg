@@ -1,0 +1,16 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Rohit\Experiments\3_Motion_Control_Simple\Motion_Control.uvproj
+Project File Date:  10/27/2010
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling Startup.s...
+compiling main.c...
+linking...
+Program Size: Code=1616 RO-data=16 RW-data=0 ZI-data=1256  
+FromELF: creating hex file...
+"Motion_Control.axf" - 0 Error(s), 0 Warning(s).

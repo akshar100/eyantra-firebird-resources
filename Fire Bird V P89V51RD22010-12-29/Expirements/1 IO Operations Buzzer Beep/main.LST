@@ -1,0 +1,59 @@
+C51 COMPILER V8.18   MAIN                                                                  12/09/2009 11:16:06 PAGE 1   
+
+
+C51 COMPILER V8.18, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /**************************************************************************************************
+   2                          Platform: Fire Bird V P89V51RD2
+   3                          IO Operations Buzzer Beep
+   4                          Written by: Omkar Pradhan, NEX Robotics Pvt. Ltd.
+   5                          Edited By: Sachitanand Malewar, NEX Robotics Pvt. Ltd.
+   6                          Last Modification: 2009-12-08
+   7                          This program turns the buzzer ON and OFF with a finite delay in between
+   8                          Compiled with: uVision3 V3.90; C Compiler: C51.Exe, V8.18
+   9          **************************************************************************************************/
+  10          
+  11          #include <intrins.h>
+  12          #include "p89v51rx2.h"
+  13          
+  14          sbit buzzer=P2^7;  //buzzer = 1; buzzer off, buzzer = 0; buzzer on,
+  15          
+  16          // function for giving a delay of ms milliseconds
+  17          void delay_ms(unsigned int ms)
+  18          {
+  19   1      unsigned int i,j;
+  20   1      
+  21   1      for(i=0;i<ms;i++)
+  22   1      for(j=0;j<53;j++);
+  23   1      
+  24   1      }
+  25          
+  26          void main (void)
+  27          {
+  28   1      
+  29   1      while(1)
+  30   1      {
+  31   2      buzzer=0;               //switch ON the buzzer
+  32   2      delay_ms(100);  //give delay of 100 milliseconds
+  33   2      buzzer=1;               //switch off the buzzer
+  34   2      delay_ms(100);
+  35   2      }
+  36   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     48    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

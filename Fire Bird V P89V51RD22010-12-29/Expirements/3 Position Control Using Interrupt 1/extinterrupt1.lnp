@@ -1,0 +1,3 @@
+"main.obj" 
+TO "extinterrupt1" 
+RAMSIZE(256) 

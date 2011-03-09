@@ -1,0 +1,4 @@
+--cpu ARM7TDMI "startup.o" "main.o" "lcd.o" --strict --scatter "Adaptive_Cruise_Control.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\Adaptive_Cruise_Control.map" -o "Adaptive_Cruise_Control.axf"

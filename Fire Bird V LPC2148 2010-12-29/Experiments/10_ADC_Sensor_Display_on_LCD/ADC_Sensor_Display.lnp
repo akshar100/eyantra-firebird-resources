@@ -1,0 +1,4 @@
+--cpu ARM7TDMI "startup.o" "main.o" "lcd.o" --strict --scatter "ADC_Sensor_Display.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\ADC_Sensor_Display.map" -o "ADC_Sensor_Display.axf"

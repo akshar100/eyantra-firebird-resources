@@ -1,0 +1,20 @@
+*** Creating Trace Output File 'Serial_Comm_Xbee.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"startup.o"'
+### List of Objects: adding '"main.o"'
+### ADS-LD Command completed:
+--cpu ARM7TDMI "startup.o" "main.o" --strict --scatter "Serial_Comm_Xbee.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\Serial_Comm_Xbee.map" -o "Serial_Comm_Xbee.axf"### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'Serial_Comm_Xbee.axf'
+### ADS-LD Command File: 'Serial_Comm_Xbee.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'Serial_Comm_Xbee.lnp', Handle=0x0000054C
+### Writing '.lnp' file
+### ADS-LD Command file 'Serial_Comm_Xbee.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

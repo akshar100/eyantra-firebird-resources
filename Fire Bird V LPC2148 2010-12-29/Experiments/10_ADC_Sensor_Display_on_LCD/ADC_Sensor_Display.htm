@@ -1,0 +1,837 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html><head>
+<title>Static Call Graph - [C:\Rohit\Experiments\10_ADC_Sensor_Display_on_LCD\ADC_Sensor_Display.axf]</title></head>
+<body><HR>
+<H1>Static Call Graph for image C:\Rohit\Experiments\10_ADC_Sensor_Display_on_LCD\ADC_Sensor_Display.axf</H1><HR>
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, RVCT4.0 [Build 728]: Last Updated: Thu Nov 25 11:58:09 2010
+<BR><P>
+<H3>Maximum Stack Usage =        336 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+Call chain for Maximum Stack Depth:</H3>
+main &rArr; Sharp_GP2D12_Estimation &rArr; pow &rArr; __kernel_poly &rArr; __aeabi_dmul
+<P>
+<H3>
+Functions with no stack information
+</H3><UL>
+ <LI><a href="#[daf568]">Reset_Handler</a>
+ <LI><a href="#[daf5a4]">__user_initial_stackheap</a>
+ <LI><a href="#[daf7c0]">Undef_Handler</a>
+ <LI><a href="#[daf784]">SWI_Handler</a>
+ <LI><a href="#[daf748]">PAbt_Handler</a>
+ <LI><a href="#[daf70c]">DAbt_Handler</a>
+ <LI><a href="#[daf6d0]">IRQ_Handler</a>
+ <LI><a href="#[daf694]">FIQ_Handler</a>
+</UL>
+</UL>
+<P>
+<H3>
+Mutually Recursive functions
+</H3> <LI><a href="#[daf7c0]">Undef_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[daf7c0]">Undef_Handler</a><BR>
+ <LI><a href="#[daf784]">SWI_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[daf784]">SWI_Handler</a><BR>
+ <LI><a href="#[daf748]">PAbt_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[daf748]">PAbt_Handler</a><BR>
+ <LI><a href="#[daf70c]">DAbt_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[daf70c]">DAbt_Handler</a><BR>
+ <LI><a href="#[daf6d0]">IRQ_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[daf6d0]">IRQ_Handler</a><BR>
+ <LI><a href="#[daf694]">FIQ_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[daf694]">FIQ_Handler</a><BR>
+</UL>
+<P>
+<H3>
+Function Pointers
+</H3><UL>
+ <LI><a href="#[daf568]">Reset_Handler</a>
+ <LI><a href="#[daf7c0]">Undef_Handler</a>
+ <LI><a href="#[daf784]">SWI_Handler</a>
+ <LI><a href="#[daf748]">PAbt_Handler</a>
+ <LI><a href="#[daf70c]">DAbt_Handler</a>
+ <LI><a href="#[daf6d0]">IRQ_Handler</a>
+ <LI><a href="#[daf694]">FIQ_Handler</a>
+ <LI><a href="#[dad204]">__main</a>
+ <LI><a href="#[daea64]">main</a>
+ <LI><a href="#[da4c30]">__I$use$semihosting</a>
+</UL>
+<P>
+<H3>
+Global Symbols
+</H3>
+<P><STRONG><a name="[daf568]"></a>Reset_Handler</STRONG> (ARM, 0 bytes, Stack size unknown bytes, startup.o(RESET))
+<BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
+</UL>
+<P><STRONG><a name="[dad204]"></a>__main</STRONG> (ARM, 8 bytes, Stack size 0 bytes, __main.o(!!!main))
+<BR><BR>[Calls]<UL><LI><a href="#[da2764]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
+<LI><a href="#[daaf54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
+</UL>
+
+<P><STRONG><a name="[da2764]"></a>__scatterload</STRONG> (ARM, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter))
+<BR><BR>[Called By]<UL><LI><a href="#[dad204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
+</UL>
+
+<P><STRONG><a name="[da2728]"></a>__scatterload_rt2</STRONG> (ARM, 52 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[daaf54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
+</UL>
+
+<P><STRONG><a name="[da26ec]"></a>__scatterload_null</STRONG> (ARM, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+
+<P><STRONG><a name="[da2548]"></a>__scatterload_zeroinit</STRONG> (ARM, 44 bytes, Stack size unknown bytes, __scatter_zi.o(!!handler_zi), UNUSED)
+
+<P><STRONG><a name="[da7d68]"></a>__rt_lib_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit.o(.ARM.Collect$$libinit$$00000000))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
+<LI>Call Chain = __rt_lib_init &rArr; _fp_init
+</UL>
+<BR>[Calls]<UL><LI><a href="#[da5950]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_init (via Veneer)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[da94d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_li (via Veneer)
+</UL>
+
+<P><STRONG><a name="[da5fe0]"></a>__rt_lib_init_alloca_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002A))
+
+<P><STRONG><a name="[da6058]"></a>__rt_lib_init_argv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000028))
+
+<P><STRONG><a name="[da6418]"></a>__rt_lib_init_atexit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))
+
+<P><STRONG><a name="[da62b0]"></a>__rt_lib_init_clock_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))
+
+<P><STRONG><a name="[da5ef0]"></a>__rt_lib_init_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))
+
+<P><STRONG><a name="[da5f68]"></a>__rt_lib_init_exceptions_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))
+
+<P><STRONG><a name="[da6328]"></a>__rt_lib_init_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))
+
+<P><STRONG><a name="[da6238]"></a>__rt_lib_init_getenv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))
+
+<P><STRONG><a name="[da6814]"></a>__rt_lib_init_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000006))
+
+<P><STRONG><a name="[da6670]"></a>__rt_lib_init_lc_collate_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000D))
+
+<P><STRONG><a name="[da65f8]"></a>__rt_lib_init_lc_ctype_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000F))
+
+<P><STRONG><a name="[da6580]"></a>__rt_lib_init_lc_monetary_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))
+
+<P><STRONG><a name="[da6508]"></a>__rt_lib_init_lc_numeric_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))
+
+<P><STRONG><a name="[da6490]"></a>__rt_lib_init_lc_time_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))
+
+<P><STRONG><a name="[da6724]"></a>__rt_lib_init_rand_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))
+
+<P><STRONG><a name="[da5eb4]"></a>__rt_lib_init_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002F))
+
+<P><STRONG><a name="[da63a0]"></a>__rt_lib_init_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))
+
+<P><STRONG><a name="[da61c0]"></a>__rt_lib_init_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))
+
+<P><STRONG><a name="[da679c]"></a>__rt_lib_init_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000008))
+
+<P><STRONG><a name="[da4000]"></a>__rt_lib_shutdown</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown.o(.ARM.Collect$$libshutdown$$00000000))
+<BR><BR>[Called By]<UL><LI><a href="#[da55cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_ls (via Veneer)
+</UL>
+
+<P><STRONG><a name="[da2cc8]"></a>__rt_lib_shutdown_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000006))
+
+<P><STRONG><a name="[da2ae8]"></a>__rt_lib_shutdown_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000E))
+
+<P><STRONG><a name="[da2aac]"></a>__rt_lib_shutdown_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F))
+
+<P><STRONG><a name="[da2c14]"></a>__rt_lib_shutdown_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000009))
+
+<P><STRONG><a name="[da2d7c]"></a>__rt_lib_shutdown_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000003))
+
+<P><STRONG><a name="[da2b9c]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000B))
+
+<P><STRONG><a name="[daaf54]"></a>__rt_entry</STRONG> (ARM, 0 bytes, Stack size unknown bytes, rtentry.o(.ARM.Collect$$rtentry$$00000000))
+<BR><BR>[Called By]<UL><LI><a href="#[da2728]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
+<LI><a href="#[dad204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
+</UL>
+
+<P><STRONG><a name="[da958c]"></a>__rt_entry_presh_1</STRONG> (ARM, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$00000002))
+
+<P><STRONG><a name="[da9208]"></a>__rt_entry_sh</STRONG> (ARM, 0 bytes, Stack size unknown bytes, rtentry4.o(.ARM.Collect$$rtentry$$00000004))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_sh &rArr; __user_setup_stackheap
+</UL>
+<BR>[Calls]<UL><LI><a href="#[da8560]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
+</UL>
+
+<P><STRONG><a name="[da94d8]"></a>__rt_entry_li</STRONG> (ARM, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000A))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_li &rArr; __rt_lib_init &rArr; _fp_init
+</UL>
+<BR>[Calls]<UL><LI><a href="#[da7d68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init (via Veneer)
+</UL>
+
+<P><STRONG><a name="[da9514]"></a>__rt_entry_postsh_1</STRONG> (ARM, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$00000009))
+
+<P><STRONG><a name="[da9424]"></a>__rt_entry_main</STRONG> (ARM, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
+<BR><BR>[Calls]<UL><LI><a href="#[da83f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit (via BX)
+</UL>
+
+<P><STRONG><a name="[da9460]"></a>__rt_entry_postli_1</STRONG> (ARM, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000C))
+
+<P><STRONG><a name="[da7714]"></a>__rt_exit</STRONG> (ARM, 0 bytes, Stack size unknown bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))
+<BR><BR>[Called By]<UL><LI><a href="#[da83f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit (via Veneer)
+</UL>
+
+<P><STRONG><a name="[da55cc]"></a>__rt_exit_ls</STRONG> (ARM, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000003))
+<BR><BR>[Calls]<UL><LI><a href="#[da4000]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_shutdown (via Veneer)
+</UL>
+
+<P><STRONG><a name="[da5608]"></a>__rt_exit_prels_1</STRONG> (ARM, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000002))
+
+<P><STRONG><a name="[da5590]"></a>__rt_exit_exit</STRONG> (ARM, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000004))
+<BR><BR>[Calls]<UL><LI><a href="#[da57e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit
+</UL>
+
+<P><STRONG><a name="[daf5a4]"></a>__user_initial_stackheap</STRONG> (ARM, 0 bytes, Stack size unknown bytes, startup.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[da8560]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
+</UL>
+
+<P><STRONG><a name="[daecbc]"></a>Init_Buzzer_Pin</STRONG> (ARM, 80 bytes, Stack size 0 bytes, main.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[daeadc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Ports
+</UL>
+
+<P><STRONG><a name="[daec80]"></a>Init_ADC_Pin</STRONG> (ARM, 80 bytes, Stack size 0 bytes, main.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[daeadc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Ports
+</UL>
+
+<P><STRONG><a name="[daec44]"></a>Init_ADC0</STRONG> (ARM, 16 bytes, Stack size 0 bytes, main.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[daeaa0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Peripherals
+</UL>
+
+<P><STRONG><a name="[daec08]"></a>Init_ADC1</STRONG> (ARM, 16 bytes, Stack size 0 bytes, main.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[daeaa0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Peripherals
+</UL>
+
+<P><STRONG><a name="[daebcc]"></a>AD0_Conversion</STRONG> (ARM, 128 bytes, Stack size 0 bytes, main.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[daea64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[daeb90]"></a>AD1_Conversion</STRONG> (ARM, 128 bytes, Stack size 0 bytes, main.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[daea64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[daeb54]"></a>Sharp_GP2D12_Estimation</STRONG> (ARM, 180 bytes, Stack size 64 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 328<LI>Call Chain = Sharp_GP2D12_Estimation &rArr; pow &rArr; __kernel_poly &rArr; __aeabi_dmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[dab5e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<LI><a href="#[dab9e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
+<LI><a href="#[dabe90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
+<LI><a href="#[dac250]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[dac37c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
+<LI><a href="#[dac688]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
+<LI><a href="#[dac8e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+</UL>
+<BR>[Called By]<UL><LI><a href="#[daea64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[daeb18]"></a>Batt_Voltage_Conversion</STRONG> (ARM, 144 bytes, Stack size 56 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = Batt_Voltage_Conversion &rArr; __aeabi_dmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[dab92c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
+<LI><a href="#[dabc38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
+<LI><a href="#[dac0e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[dac250]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[daccdc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[dad09c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+</UL>
+<BR>[Called By]<UL><LI><a href="#[daea64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[daeadc]"></a>Init_Ports</STRONG> (ARM, 24 bytes, Stack size 8 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Init_Ports
+</UL>
+<BR>[Calls]<UL><LI><a href="#[dae9ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_LCD_Pin
+<LI><a href="#[daec80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_ADC_Pin
+<LI><a href="#[daecbc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Buzzer_Pin
+</UL>
+<BR>[Called By]<UL><LI><a href="#[daeaa0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Peripherals
+</UL>
+
+<P><STRONG><a name="[daeaa0]"></a>Init_Peripherals</STRONG> (ARM, 24 bytes, Stack size 8 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Init_Peripherals &rArr; Init_Ports
+</UL>
+<BR>[Calls]<UL><LI><a href="#[daeadc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Ports
+<LI><a href="#[daec08]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_ADC1
+<LI><a href="#[daec44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_ADC0
+</UL>
+<BR>[Called By]<UL><LI><a href="#[daea64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[daea64]"></a>main</STRONG> (ARM, 452 bytes, Stack size 8 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 336 + Unknown Stack Size
+<LI>Call Chain = main &rArr; Sharp_GP2D12_Estimation &rArr; pow &rArr; __kernel_poly &rArr; __aeabi_dmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[dae8fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Print
+<LI><a href="#[dae938]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
+<LI><a href="#[dae974]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Command
+<LI><a href="#[dae9b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_4Bit_Mode
+<LI><a href="#[daea28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelaymSec
+<LI><a href="#[daeaa0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Peripherals
+<LI><a href="#[daeb18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Batt_Voltage_Conversion
+<LI><a href="#[daeb54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sharp_GP2D12_Estimation
+<LI><a href="#[daeb90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AD1_Conversion
+<LI><a href="#[daebcc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AD0_Conversion
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> rtentry2.o(.ARM.Collect$$rtentry$$0000000D)
+</UL>
+<P><STRONG><a name="[dae9ec]"></a>Init_LCD_Pin</STRONG> (ARM, 48 bytes, Stack size 0 bytes, lcd.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[daeadc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Ports
+</UL>
+
+<P><STRONG><a name="[daea28]"></a>DelaymSec</STRONG> (ARM, 44 bytes, Stack size 0 bytes, lcd.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[dae17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Data
+<LI><a href="#[dae974]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Command
+<LI><a href="#[dae9b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_4Bit_Mode
+<LI><a href="#[daea64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[dae974]"></a>LCD_Command</STRONG> (ARM, 188 bytes, Stack size 8 bytes, lcd.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = LCD_Command
+</UL>
+<BR>[Calls]<UL><LI><a href="#[daea28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelaymSec
+</UL>
+<BR>[Called By]<UL><LI><a href="#[dae0c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Cursor
+<LI><a href="#[dae104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Home
+<LI><a href="#[dae938]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
+<LI><a href="#[daea64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[dae9b0]"></a>LCD_4Bit_Mode</STRONG> (ARM, 376 bytes, Stack size 4 bytes, lcd.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = LCD_4Bit_Mode
+</UL>
+<BR>[Calls]<UL><LI><a href="#[daea28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelaymSec
+</UL>
+<BR>[Called By]<UL><LI><a href="#[daea64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[dae17c]"></a>LCD_Data</STRONG> (ARM, 188 bytes, Stack size 8 bytes, lcd.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = LCD_Data
+</UL>
+<BR>[Calls]<UL><LI><a href="#[daea28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelaymSec
+</UL>
+<BR>[Called By]<UL><LI><a href="#[dae140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_String
+<LI><a href="#[dae8fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Print
+</UL>
+
+<P><STRONG><a name="[dae938]"></a>LCD_Init</STRONG> (ARM, 36 bytes, Stack size 4 bytes, lcd.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = LCD_Init &rArr; LCD_Command
+</UL>
+<BR>[Calls]<UL><LI><a href="#[dae974]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Command
+</UL>
+<BR>[Called By]<UL><LI><a href="#[daea64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[dae140]"></a>LCD_String</STRONG> (ARM, 44 bytes, Stack size 8 bytes, lcd.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[dae17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Data
+</UL>
+
+<P><STRONG><a name="[dae104]"></a>LCD_Home</STRONG> (ARM, 20 bytes, Stack size 4 bytes, lcd.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = LCD_Home &rArr; LCD_Command
+</UL>
+<BR>[Calls]<UL><LI><a href="#[dae974]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Command
+</UL>
+<BR>[Called By]<UL><LI><a href="#[dae8fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Print
+</UL>
+
+<P><STRONG><a name="[dae0c8]"></a>LCD_Cursor</STRONG> (ARM, 84 bytes, Stack size 12 bytes, lcd.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = LCD_Cursor &rArr; LCD_Command
+</UL>
+<BR>[Calls]<UL><LI><a href="#[dae974]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Command
+</UL>
+<BR>[Called By]<UL><LI><a href="#[dae8fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Print
+</UL>
+
+<P><STRONG><a name="[dae8fc]"></a>LCD_Print</STRONG> (ARM, 364 bytes, Stack size 48 bytes, lcd.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 68 + Unknown Stack Size
+<LI>Call Chain = LCD_Print &rArr; LCD_Cursor &rArr; LCD_Command
+</UL>
+<BR>[Calls]<UL><LI><a href="#[dadc18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+<LI><a href="#[dae0c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Cursor
+<LI><a href="#[dae104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Home
+<LI><a href="#[dae17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Data
+</UL>
+<BR>[Called By]<UL><LI><a href="#[daea64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[dadccc]"></a>__aeabi_idiv</STRONG> (ARM, 0 bytes, Stack size 8 bytes, aeabi_sdiv.o(.text), UNUSED)
+
+<P><STRONG><a name="[dadc90]"></a>__aeabi_idivmod</STRONG> (ARM, 384 bytes, Stack size 8 bytes, aeabi_sdiv.o(.text), UNUSED)
+
+<P><STRONG><a name="[dad36c]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+
+<P><STRONG><a name="[dad330]"></a>__rt_heap_escrow$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+
+<P><STRONG><a name="[dad2f4]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+
+<P><STRONG><a name="[daaae0]"></a>__read_errno</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, _rserrno.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[da8dd0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_errno_addr (via Veneer)
+</UL>
+
+<P><STRONG><a name="[daaaa4]"></a>__set_errno</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, _rserrno.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __set_errno
+</UL>
+<BR>[Calls]<UL><LI><a href="#[da8dd0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_errno_addr (via Veneer)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[da9a3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt (via Veneer)
+<LI><a href="#[dab5e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow (via Veneer)
+</UL>
+
+<P><STRONG><a name="[da8dd0]"></a>__aeabi_errno_addr</STRONG> (ARM, 16 bytes, Stack size 0 bytes, rt_errno_addr_intlibspace.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[daaaa4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno (via Veneer)
+<LI><a href="#[daaae0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__read_errno (via Veneer)
+</UL>
+
+<P><STRONG><a name="[da8d94]"></a>__errno$intlibspace</STRONG> (ARM, 0 bytes, Stack size 0 bytes, rt_errno_addr_intlibspace.o(.text), UNUSED)
+
+<P><STRONG><a name="[da8d58]"></a>__rt_errno_addr$intlibspace</STRONG> (ARM, 0 bytes, Stack size 0 bytes, rt_errno_addr_intlibspace.o(.text), UNUSED)
+
+<P><STRONG><a name="[da86c8]"></a>__user_libspace</STRONG> (ARM, 12 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+
+<P><STRONG><a name="[da868c]"></a>__user_perproc_libspace</STRONG> (ARM, 0 bytes, Stack size 0 bytes, libspace.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[da8560]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
+</UL>
+
+<P><STRONG><a name="[da8650]"></a>__user_perthread_libspace</STRONG> (ARM, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+
+<P><STRONG><a name="[da8560]"></a>__user_setup_stackheap</STRONG> (ARM, 96 bytes, Stack size 8 bytes, sys_stackheap_outer.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
+<LI>Call Chain = __user_setup_stackheap
+</UL>
+<BR>[Calls]<UL><LI><a href="#[da868c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_perproc_libspace
+<LI><a href="#[daf5a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_initial_stackheap
+</UL>
+<BR>[Called By]<UL><LI><a href="#[da9208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_sh
+</UL>
+
+<P><STRONG><a name="[da83f8]"></a>exit</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, exit.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[da7714]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit (via Veneer)
+<LI><a href="#[da8380]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_call_atexit_fns (Weak Reference)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[da9424]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
+</UL>
+
+<P><STRONG><a name="[da57e8]"></a>_sys_exit</STRONG> (ARM, 20 bytes, Stack size 0 bytes, sys_exit.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[da5590]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
+</UL>
+
+<P><STRONG><a name="[da52c0]"></a>__rt_fp_status_addr</STRONG> (ARM, 16 bytes, Stack size 0 bytes, rt_fp_status_addr_intlibspace.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[da5950]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_init
+</UL>
+
+<P><STRONG><a name="[da4c30]"></a>__I$use$semihosting</STRONG> (ARM, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> sys_exit.o(.text)
+</UL>
+<P><STRONG><a name="[da4bf4]"></a>__use_no_semihosting_swi</STRONG> (ARM, 4 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+
+<P><STRONG><a name="[dadc54]"></a>__aeabi_uidiv</STRONG> (ARM, 0 bytes, Stack size 0 bytes, aeabi_sdiv.o(.text_udiv), UNUSED)
+
+<P><STRONG><a name="[dadc18]"></a>__aeabi_uidivmod</STRONG> (ARM, 28 bytes, Stack size 0 bytes, aeabi_sdiv.o(.text_udiv))
+<BR><BR>[Calls]<UL><LI><a href="#[dadd08]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__arm_div_large
+<LI><a href="#[dadd44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__arm_div4
+<LI><a href="#[dadd80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__arm_div8
+</UL>
+<BR>[Called By]<UL><LI><a href="#[dae8fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Print
+</UL>
+
+<P><STRONG><a name="[da9c94]"></a>__kernel_poly</STRONG> (ARM, 256 bytes, Stack size 24 bytes, poly.o(i.__kernel_poly))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = __kernel_poly &rArr; __aeabi_dmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[dac250]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[daccdc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[dab5e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+</UL>
+
+<P><STRONG><a name="[dab5e4]"></a>pow</STRONG> (ARM, 3876 bytes, Stack size 224 bytes, pow.o(i.pow))
+<BR><BR>[Stack]<UL><LI>Max Depth = 264<LI>Call Chain = pow &rArr; __kernel_poly &rArr; __aeabi_dmul
+</UL>
+<BR>[Calls]<UL><LI><a href="#[da9a3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
+<LI><a href="#[da9c94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
+<LI><a href="#[daa090]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;scalbn
+<LI><a href="#[daa0cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
+<LI><a href="#[daa75c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<LI><a href="#[daaaa4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno (via Veneer)
+<LI><a href="#[dac250]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[dac430]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
+<LI><a href="#[dac8e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[dacbb0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[dacc28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[daccdc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[daeb54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sharp_GP2D12_Estimation
+</UL>
+
+<P><STRONG><a name="[da9a3c]"></a>sqrt</STRONG> (ARM, 80 bytes, Stack size 16 bytes, sqrt.o(i.sqrt))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = sqrt &rArr; _dsqrt
+</UL>
+<BR>[Calls]<UL><LI><a href="#[da8998]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsqrt
+<LI><a href="#[da8ac4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
+<LI><a href="#[daaaa4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno (via Veneer)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[dab5e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+</UL>
+
+<P><STRONG><a name="[dad09c]"></a>__aeabi_d2f</STRONG> (ARM, 0 bytes, Stack size 0 bytes, d2f.o(x$fpl$d2f))
+<BR><BR>[Called By]<UL><LI><a href="#[daeb18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Batt_Voltage_Conversion
+</UL>
+
+<P><STRONG><a name="[dad060]"></a>_d2f</STRONG> (ARM, 168 bytes, Stack size 0 bytes, d2f.o(x$fpl$d2f), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[daa84c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcheck_NaN1
+<LI><a href="#[dacf34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_infinity (Weak Reference)
+</UL>
+
+<P><STRONG><a name="[dad024]"></a>__fpl_inf_d2f</STRONG> (ARM, 0 bytes, Stack size unknown bytes, d2f.o(x$fpl$d2f), UNUSED)
+
+<P><STRONG><a name="[daccdc]"></a>__aeabi_dadd</STRONG> (ARM, 0 bytes, Stack size 8 bytes, daddsub_noclz.o(x$fpl$dadd))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_dadd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[da9c94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
+<LI><a href="#[dab5e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<LI><a href="#[daeb18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Batt_Voltage_Conversion
+</UL>
+
+<P><STRONG><a name="[dacca0]"></a>_dadd</STRONG> (ARM, 452 bytes, Stack size 8 bytes, daddsub_noclz.o(x$fpl$dadd), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[daa978]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcheck_NaN2
+<LI><a href="#[dacd18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub1
+<LI><a href="#[dacf34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_infinity (Weak Reference)
+</UL>
+
+<P><STRONG><a name="[dacc64]"></a>__fpl_inf_dadd</STRONG> (ARM, 0 bytes, Stack size unknown bytes, daddsub_noclz.o(x$fpl$dadd), UNUSED)
+
+<P><STRONG><a name="[daa978]"></a>__fpl_dcheck_NaN2</STRONG> (ARM, 12 bytes, Stack size 0 bytes, dcheck.o(x$fpl$dcheck), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[da886c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_return_NaN
+</UL>
+<BR>[Called By]<UL><LI><a href="#[da8c2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcmp_InfNaN
+<LI><a href="#[dac214]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dmul
+<LI><a href="#[dac8a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ddiv
+<LI><a href="#[dacb74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub
+<LI><a href="#[dacca0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd
+</UL>
+
+<P><STRONG><a name="[daa84c]"></a>__fpl_dcheck_NaN1</STRONG> (ARM, 12 bytes, Stack size 0 bytes, dcheck1.o(x$fpl$dcheck1))
+<BR><BR>[Calls]<UL><LI><a href="#[da886c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_return_NaN
+</UL>
+<BR>[Called By]<UL><LI><a href="#[da8998]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsqrt
+<LI><a href="#[daa090]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;scalbn
+<LI><a href="#[dac64c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dfix
+<LI><a href="#[dad060]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_d2f
+</UL>
+
+<P><STRONG><a name="[da8c2c]"></a>__fpl_dcmp_InfNaN</STRONG> (ARM, 128 bytes, Stack size 4 bytes, dcmpin.o(x$fpl$dcmpinfnan), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[da77c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_cmpreturn
+<LI><a href="#[daa978]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcheck_NaN2
+<LI><a href="#[dacf34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_infinity (Weak Reference)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[da8a88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dcmple
+<LI><a href="#[daa720]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_drcmple
+</UL>
+
+<P><STRONG><a name="[da8bf0]"></a>__fpl_inf_dcmp</STRONG> (ARM, 0 bytes, Stack size unknown bytes, dcmpin.o(x$fpl$dcmpinfnan), UNUSED)
+
+<P><STRONG><a name="[dac8e0]"></a>__aeabi_ddiv</STRONG> (ARM, 0 bytes, Stack size 16 bytes, ddiv.o(x$fpl$ddiv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_ddiv
+</UL>
+<BR>[Called By]<UL><LI><a href="#[dab5e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<LI><a href="#[daeb54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sharp_GP2D12_Estimation
+</UL>
+
+<P><STRONG><a name="[dac8a4]"></a>_ddiv</STRONG> (ARM, 464 bytes, Stack size 16 bytes, ddiv.o(x$fpl$ddiv), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[daa978]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcheck_NaN2
+<LI><a href="#[dac82c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ddiv_mantissas
+<LI><a href="#[dacf34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_infinity (Weak Reference)
+</UL>
+
+<P><STRONG><a name="[dac868]"></a>__fpl_inf_ddiv</STRONG> (ARM, 0 bytes, Stack size unknown bytes, ddiv.o(x$fpl$ddiv), UNUSED)
+
+<P><STRONG><a name="[dac82c]"></a>_ddiv_mantissas</STRONG> (ARM, 380 bytes, Stack size 20 bytes, ddiv.o(x$fpl$ddiv), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[dac8a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ddiv
+</UL>
+
+<P><STRONG><a name="[dac688]"></a>__aeabi_d2iz</STRONG> (ARM, 0 bytes, Stack size 8 bytes, dfix.o(x$fpl$dfix))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_d2iz
+</UL>
+<BR>[Called By]<UL><LI><a href="#[daeb54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sharp_GP2D12_Estimation
+</UL>
+
+<P><STRONG><a name="[dac64c]"></a>_dfix</STRONG> (ARM, 172 bytes, Stack size 8 bytes, dfix.o(x$fpl$dfix), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[daa84c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcheck_NaN1
+<LI><a href="#[dacf34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_infinity (Weak Reference)
+</UL>
+
+<P><STRONG><a name="[dac610]"></a>__fpl_inf_dfix</STRONG> (ARM, 0 bytes, Stack size unknown bytes, dfix.o(x$fpl$dfix), UNUSED)
+
+<P><STRONG><a name="[dac430]"></a>__aeabi_i2d</STRONG> (ARM, 0 bytes, Stack size 0 bytes, dflt_noclz.o(x$fpl$dflt))
+<BR><BR>[Called By]<UL><LI><a href="#[dab5e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+</UL>
+
+<P><STRONG><a name="[dac3f4]"></a>_dflt</STRONG> (ARM, 88 bytes, Stack size 0 bytes, dflt_noclz.o(x$fpl$dflt), UNUSED)
+
+<P><STRONG><a name="[dac3b8]"></a>__dflt_normalise</STRONG> (ARM, 0 bytes, Stack size unknown bytes, dflt_noclz.o(x$fpl$dflt), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[dac340]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dfltu
+</UL>
+
+<P><STRONG><a name="[dac37c]"></a>__aeabi_ui2d</STRONG> (ARM, 0 bytes, Stack size 0 bytes, dflt_noclz.o(x$fpl$dfltu))
+<BR><BR>[Called By]<UL><LI><a href="#[daeb54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sharp_GP2D12_Estimation
+</UL>
+
+<P><STRONG><a name="[dac340]"></a>_dfltu</STRONG> (ARM, 12 bytes, Stack size 0 bytes, dflt_noclz.o(x$fpl$dfltu), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[dac3b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__dflt_normalise
+</UL>
+
+<P><STRONG><a name="[da8ac4]"></a>__aeabi_cdcmple</STRONG> (ARM, 0 bytes, Stack size 0 bytes, dleqf.o(x$fpl$dleqf))
+<BR><BR>[Called By]<UL><LI><a href="#[da9a3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
+</UL>
+
+<P><STRONG><a name="[da8a88]"></a>_dcmple</STRONG> (ARM, 132 bytes, Stack size 0 bytes, dleqf.o(x$fpl$dleqf), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[da8c2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcmp_InfNaN
+</UL>
+
+<P><STRONG><a name="[dac250]"></a>__aeabi_dmul</STRONG> (ARM, 0 bytes, Stack size 16 bytes, dmul.o(x$fpl$dmul))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_dmul
+</UL>
+<BR>[Called By]<UL><LI><a href="#[da9c94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
+<LI><a href="#[dab5e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<LI><a href="#[daeb18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Batt_Voltage_Conversion
+<LI><a href="#[daeb54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sharp_GP2D12_Estimation
+</UL>
+
+<P><STRONG><a name="[dac214]"></a>_dmul</STRONG> (ARM, 460 bytes, Stack size 16 bytes, dmul.o(x$fpl$dmul), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[daa978]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcheck_NaN2
+<LI><a href="#[dacf34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_infinity (Weak Reference)
+</UL>
+
+<P><STRONG><a name="[dac1d8]"></a>__fpl_inf_dmul</STRONG> (ARM, 0 bytes, Stack size unknown bytes, dmul.o(x$fpl$dmul), UNUSED)
+
+<P><STRONG><a name="[daa75c]"></a>__aeabi_cdrcmple</STRONG> (ARM, 0 bytes, Stack size 0 bytes, drleqf.o(x$fpl$drleqf))
+<BR><BR>[Called By]<UL><LI><a href="#[dab5e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+</UL>
+
+<P><STRONG><a name="[daa720]"></a>_drcmple</STRONG> (ARM, 156 bytes, Stack size 0 bytes, drleqf.o(x$fpl$drleqf), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[da8c2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcmp_InfNaN
+</UL>
+
+<P><STRONG><a name="[dacc28]"></a>__aeabi_drsub</STRONG> (ARM, 0 bytes, Stack size 8 bytes, daddsub_noclz.o(x$fpl$drsb))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_drsub
+</UL>
+<BR>[Called By]<UL><LI><a href="#[dab5e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+</UL>
+
+<P><STRONG><a name="[dacbec]"></a>_drsb</STRONG> (ARM, 24 bytes, Stack size 8 bytes, daddsub_noclz.o(x$fpl$drsb), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[dacd18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub1
+<LI><a href="#[dacd54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd1
+</UL>
+
+<P><STRONG><a name="[da8998]"></a>_dsqrt</STRONG> (ARM, 384 bytes, Stack size 16 bytes, dsqrt.o(x$fpl$dsqrt))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = _dsqrt
+</UL>
+<BR>[Calls]<UL><LI><a href="#[daa84c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcheck_NaN1
+<LI><a href="#[dacf34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_infinity (Weak Reference)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[da9a3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
+</UL>
+
+<P><STRONG><a name="[da895c]"></a>__fpl_inf_dsqrt</STRONG> (ARM, 0 bytes, Stack size unknown bytes, dsqrt.o(x$fpl$dsqrt), UNUSED)
+
+<P><STRONG><a name="[dacbb0]"></a>__aeabi_dsub</STRONG> (ARM, 0 bytes, Stack size 8 bytes, daddsub_noclz.o(x$fpl$dsub))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_dsub
+</UL>
+<BR>[Called By]<UL><LI><a href="#[dab5e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+</UL>
+
+<P><STRONG><a name="[dacb74]"></a>_dsub</STRONG> (ARM, 572 bytes, Stack size 8 bytes, daddsub_noclz.o(x$fpl$dsub), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[daa978]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcheck_NaN2
+<LI><a href="#[dacd54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd1
+<LI><a href="#[dacf34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_infinity (Weak Reference)
+</UL>
+
+<P><STRONG><a name="[dacb38]"></a>__fpl_inf_dsub</STRONG> (ARM, 0 bytes, Stack size unknown bytes, daddsub_noclz.o(x$fpl$dsub), UNUSED)
+
+<P><STRONG><a name="[daa5f4]"></a>__dunder</STRONG> (ARM, 276 bytes, Stack size 4 bytes, dunder.o(x$fpl$dunder), UNUSED)
+
+<P><STRONG><a name="[daa5b8]"></a>__dunder_d</STRONG> (ARM, 4 bytes, Stack size 0 bytes, dunder.o(x$fpl$dunder), UNUSED)
+
+<P><STRONG><a name="[dac0e8]"></a>__aeabi_f2d</STRONG> (ARM, 0 bytes, Stack size 0 bytes, f2d.o(x$fpl$f2d))
+<BR><BR>[Called By]<UL><LI><a href="#[daeb18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Batt_Voltage_Conversion
+</UL>
+
+<P><STRONG><a name="[dac0ac]"></a>_f2d</STRONG> (ARM, 96 bytes, Stack size 0 bytes, f2d.o(x$fpl$f2d), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[daa4c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fcheck_NaN1
+<LI><a href="#[dacf34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_infinity (Weak Reference)
+</UL>
+
+<P><STRONG><a name="[dac070]"></a>__fpl_inf_f2d</STRONG> (ARM, 0 bytes, Stack size unknown bytes, f2d.o(x$fpl$f2d), UNUSED)
+
+<P><STRONG><a name="[daa4c8]"></a>__fpl_fcheck_NaN1</STRONG> (ARM, 8 bytes, Stack size 0 bytes, fcheck1.o(x$fpl$fcheck1), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[da886c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_return_NaN
+</UL>
+<BR>[Called By]<UL><LI><a href="#[dabbfc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ffixu
+<LI><a href="#[dabe54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ffix
+<LI><a href="#[dac0ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_f2d
+</UL>
+
+<P><STRONG><a name="[dabe90]"></a>__aeabi_f2iz</STRONG> (ARM, 0 bytes, Stack size 0 bytes, ffix.o(x$fpl$ffix))
+<BR><BR>[Called By]<UL><LI><a href="#[daeb54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sharp_GP2D12_Estimation
+</UL>
+
+<P><STRONG><a name="[dabe54]"></a>_ffix</STRONG> (ARM, 112 bytes, Stack size 0 bytes, ffix.o(x$fpl$ffix), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[daa4c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fcheck_NaN1
+<LI><a href="#[dacf34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_infinity (Weak Reference)
+</UL>
+
+<P><STRONG><a name="[dabe18]"></a>__fpl_inf_ffix</STRONG> (ARM, 0 bytes, Stack size unknown bytes, ffix.o(x$fpl$ffix), UNUSED)
+
+<P><STRONG><a name="[dabc38]"></a>__aeabi_f2uiz</STRONG> (ARM, 0 bytes, Stack size 0 bytes, ffixu.o(x$fpl$ffixu))
+<BR><BR>[Called By]<UL><LI><a href="#[daeb18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Batt_Voltage_Conversion
+</UL>
+
+<P><STRONG><a name="[dabbfc]"></a>_ffixu</STRONG> (ARM, 92 bytes, Stack size 0 bytes, ffixu.o(x$fpl$ffixu), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[daa4c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fcheck_NaN1
+<LI><a href="#[dacf34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_infinity (Weak Reference)
+</UL>
+
+<P><STRONG><a name="[dabbc0]"></a>__fpl_inf_ffixu</STRONG> (ARM, 0 bytes, Stack size unknown bytes, ffixu.o(x$fpl$ffixu), UNUSED)
+
+<P><STRONG><a name="[dab9e0]"></a>__aeabi_i2f</STRONG> (ARM, 0 bytes, Stack size 0 bytes, fflt_noclz.o(x$fpl$fflt))
+<BR><BR>[Called By]<UL><LI><a href="#[daeb54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sharp_GP2D12_Estimation
+</UL>
+
+<P><STRONG><a name="[dab9a4]"></a>_fflt</STRONG> (ARM, 92 bytes, Stack size 0 bytes, fflt_noclz.o(x$fpl$fflt), UNUSED)
+
+<P><STRONG><a name="[dab968]"></a>__fflt_normalise</STRONG> (ARM, 0 bytes, Stack size unknown bytes, fflt_noclz.o(x$fpl$fflt), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[dab8f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ffltu
+</UL>
+
+<P><STRONG><a name="[dab92c]"></a>__aeabi_ui2f</STRONG> (ARM, 0 bytes, Stack size 0 bytes, fflt_noclz.o(x$fpl$ffltu))
+<BR><BR>[Called By]<UL><LI><a href="#[daeb18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Batt_Voltage_Conversion
+</UL>
+
+<P><STRONG><a name="[dab8f0]"></a>_ffltu</STRONG> (ARM, 8 bytes, Stack size 0 bytes, fflt_noclz.o(x$fpl$ffltu), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[dab968]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fflt_normalise
+</UL>
+
+<P><STRONG><a name="[da5950]"></a>_fp_init</STRONG> (ARM, 24 bytes, Stack size 8 bytes, fpinit.o(x$fpl$fpinit))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _fp_init
+</UL>
+<BR>[Calls]<UL><LI><a href="#[da52c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_fp_status_addr
+</UL>
+<BR>[Called By]<UL><LI><a href="#[da7d68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init (via Veneer)
+</UL>
+
+<P><STRONG><a name="[da5914]"></a>__fplib_config_pureend_doubles</STRONG> (ARM, 0 bytes, Stack size unknown bytes, fpinit.o(x$fpl$fpinit), UNUSED)
+
+<P><STRONG><a name="[daa3d8]"></a>__funder</STRONG> (ARM, 144 bytes, Stack size 0 bytes, funder.o(x$fpl$funder), UNUSED)
+
+<P><STRONG><a name="[daa39c]"></a>__funder_d</STRONG> (ARM, 4 bytes, Stack size 0 bytes, funder.o(x$fpl$funder), UNUSED)
+
+<P><STRONG><a name="[da886c]"></a>__fpl_return_NaN</STRONG> (ARM, 116 bytes, Stack size 0 bytes, retnan.o(x$fpl$retnan))
+<BR><BR>[Calls]<UL><LI><a href="#[da77c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_cmpreturn
+</UL>
+<BR>[Called By]<UL><LI><a href="#[daa4c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fcheck_NaN1
+<LI><a href="#[daa84c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcheck_NaN1
+<LI><a href="#[daa978]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcheck_NaN2
+</UL>
+
+<P><STRONG><a name="[daa0cc]"></a>__ARM_scalbn</STRONG> (ARM, 0 bytes, Stack size 0 bytes, scalbn.o(x$fpl$scalbn))
+<BR><BR>[Called By]<UL><LI><a href="#[dab5e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+</UL>
+
+<P><STRONG><a name="[daa090]"></a>scalbn</STRONG> (ARM, 108 bytes, Stack size 0 bytes, scalbn.o(x$fpl$scalbn))
+<BR><BR>[Calls]<UL><LI><a href="#[daa84c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcheck_NaN1
+<LI><a href="#[dacf34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_infinity (Weak Reference)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[dab5e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+</UL>
+
+<P><STRONG><a name="[daa054]"></a>__fpl_inf_scalbn</STRONG> (ARM, 0 bytes, Stack size unknown bytes, scalbn.o(x$fpl$scalbn), UNUSED)
+
+<P><STRONG><a name="[da77c8]"></a>__fpl_cmpreturn</STRONG> (ARM, 60 bytes, Stack size 0 bytes, trapv.o(x$fpl$trapveneer))
+<BR><BR>[Called By]<UL><LI><a href="#[da886c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_return_NaN
+<LI><a href="#[da8c2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcmp_InfNaN
+</UL>
+
+<P><STRONG><a name="[da9f64]"></a>__I$use$fp</STRONG> (ARM, 0 bytes, Stack size unknown bytes, usenofp.o(x$fpl$usenofp), UNUSED)
+<P>
+<H3>
+Local Symbols
+</H3>
+<P><STRONG><a name="[daf7c0]"></a>Undef_Handler</STRONG> (ARM, 4 bytes, Stack size unknown bytes, startup.o(RESET))
+<BR><BR>[Calls]<UL><LI><a href="#[daf7c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Undef_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[daf7c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Undef_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
+</UL>
+<P><STRONG><a name="[daf784]"></a>SWI_Handler</STRONG> (ARM, 4 bytes, Stack size unknown bytes, startup.o(RESET))
+<BR><BR>[Calls]<UL><LI><a href="#[daf784]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SWI_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[daf784]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SWI_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
+</UL>
+<P><STRONG><a name="[daf748]"></a>PAbt_Handler</STRONG> (ARM, 4 bytes, Stack size unknown bytes, startup.o(RESET))
+<BR><BR>[Calls]<UL><LI><a href="#[daf748]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PAbt_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[daf748]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PAbt_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
+</UL>
+<P><STRONG><a name="[daf70c]"></a>DAbt_Handler</STRONG> (ARM, 4 bytes, Stack size unknown bytes, startup.o(RESET))
+<BR><BR>[Calls]<UL><LI><a href="#[daf70c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DAbt_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[daf70c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DAbt_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
+</UL>
+<P><STRONG><a name="[daf6d0]"></a>IRQ_Handler</STRONG> (ARM, 4 bytes, Stack size unknown bytes, startup.o(RESET))
+<BR><BR>[Calls]<UL><LI><a href="#[daf6d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IRQ_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[daf6d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IRQ_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
+</UL>
+<P><STRONG><a name="[daf694]"></a>FIQ_Handler</STRONG> (ARM, 4 bytes, Stack size unknown bytes, startup.o(RESET))
+<BR><BR>[Calls]<UL><LI><a href="#[daf694]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FIQ_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[daf694]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FIQ_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
+</UL>
+<P><STRONG><a name="[dadd80]"></a>__arm_div8</STRONG> (ARM, 0 bytes, Stack size unknown bytes, aeabi_sdiv.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[dadc18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+</UL>
+
+<P><STRONG><a name="[dadd44]"></a>__arm_div4</STRONG> (ARM, 0 bytes, Stack size unknown bytes, aeabi_sdiv.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[dadc18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+</UL>
+
+<P><STRONG><a name="[dadd08]"></a>__arm_div_large</STRONG> (ARM, 0 bytes, Stack size unknown bytes, aeabi_sdiv.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[dadc18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+</UL>
+
+<P><STRONG><a name="[dacd54]"></a>_dadd1</STRONG> (ARM, 0 bytes, Stack size unknown bytes, daddsub_noclz.o(x$fpl$dadd), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[dacb74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub
+<LI><a href="#[dacbec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_drsb
+</UL>
+
+<P><STRONG><a name="[dacd18]"></a>_dsub1</STRONG> (ARM, 0 bytes, Stack size unknown bytes, daddsub_noclz.o(x$fpl$dsub), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[dacbec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_drsb
+<LI><a href="#[dacca0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd
+</UL>
+<P>
+<H3>
+Undefined Global Symbols
+</H3>
+<P><STRONG><a name="[dacf34]"></a>__fpl_infinity</STRONG> (Unknown, 0 bytes, Stack size 0 bytes, UNDEFINED)
+<BR><BR>[Called By]<UL><LI><a href="#[da8998]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsqrt
+<LI><a href="#[da8c2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcmp_InfNaN
+<LI><a href="#[daa090]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;scalbn
+<LI><a href="#[dabbfc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ffixu
+<LI><a href="#[dabe54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ffix
+<LI><a href="#[dac0ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_f2d
+<LI><a href="#[dac214]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dmul
+<LI><a href="#[dac64c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dfix
+<LI><a href="#[dac8a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ddiv
+<LI><a href="#[dacb74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub
+<LI><a href="#[dacca0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd
+<LI><a href="#[dad060]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_d2f
+</UL>
+
+<P><STRONG><a name="[da8380]"></a>_call_atexit_fns</STRONG> (ARM, 0 bytes, Stack size 0 bytes, UNDEFINED)
+<BR><BR>[Called By]<UL><LI><a href="#[da83f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
+</UL>
+<HR></body></html>

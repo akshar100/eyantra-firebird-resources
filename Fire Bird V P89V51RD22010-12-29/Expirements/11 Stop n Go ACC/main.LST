@@ -1,0 +1,234 @@
+C51 COMPILER V8.18   MAIN                                                                  12/09/2009 11:26:56 PAGE 1   
+
+
+C51 COMPILER V8.18, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*********************************************************************************************************
+             -*****
+   2                          Platform: Fire Bird V P89V51RD2
+   3                          Adaptive Cruise Control
+   4                          Written by: Omkar Pradhan, NEX Robotics Pvt. Ltd.
+   5                          Edited By: Sachitanand Malewar, NEX Robotics Pvt. Ltd.
+   6                          Last Modification: 2009-12-08
+   7                          This program uses ADC0808 Analog to Digital Converter to aquire analog sensor data from the robot.
+   8                          Using this sensor data robot follows white line and maintain safe distance from the front obstacle.
+   9                          This analog data is displayed as a 8 element array onto the LCD screen by using a .h file "lcd_array_dis
+             -p.h"
+  10                          Compiled with: uVision3 V3.90; C Compiler: C51.Exe, V8.18
+  11          **********************************************************************************************************
+             -****/        
+  12          
+  13          #include <intrins.h>
+  14          #include "p89v51rx2.H"
+  15          #include "lcd_array_disp.h"
+  16          
+  17          //direction control bits
+  18          
+  19          sbit LB=P1^0;  //LEFT BACK Pin
+  20          sbit LF=P1^1;  //LEFT FRONT Pin
+  21          sbit RF=P1^2;  //RIGHT FRONT Pin
+  22          sbit RB=P3^4;  //RIGHT BACK Pin
+  23          
+  24          sbit buzzer=P2^7;   //buzzer = 1; buzzer off, buzzer = 0; buzzer on,
+  25          
+  26          sbit start_conv = P3^6;          //P3^6 is connected to Start and ALE pin of ADC0808
+  27          sbit output_enable = P3^7;               //P3^7 is connected to Output Enable Pin of ADC0808
+  28          
+  29          unsigned char data_array[8];//initialize an array of 8 elements to display onto the LCD screen
+  30          unsigned char i=0;  //used in main function during ADC conversion 
+  31          unsigned char left_whiteline = 0;
+  32          unsigned char center_whiteline = 0;
+  33          unsigned char right_whiteline = 0;
+  34          unsigned char flag = 0; //used in white line following logic
+  35          
+  36          unsigned char front_sharp_sensor = 0; //used in stop n go ACC
+  37          
+  38          /********************************************************************************
+  39                  Function: ADC_conversion(unsigned char ADC_channel_number)
+  40          
+  41                  Description: This function performs ADC conversion of a channel number 
+  42                                           that is passed to it. The return value of this function contains 
+  43                                           digital data of the selected channel.
+  44                             
+  45                                           Analog Sensor Pin Mapping
+  46            
+  47                           IN0-----> Optional
+  48                                           IN1-----> Batt. Voltage
+  49                                           IN2-----> Front Sharp IR Range sensor
+  50                                           IN3-----> Left Proximity
+  51                                           IN4-----> Left Whiteline
+  52                                           IN5-----> Center Whiteline
+C51 COMPILER V8.18   MAIN                                                                  12/09/2009 11:26:56 PAGE 2   
+
+  53                                           IN6-----> Right Whiteline
+  54                                           IN7-----> Right Proximity
+  55          ********************************************************************************/
+  56          unsigned char ADC_conversion(unsigned char ADC_ch_no)
+  57          {
+  58   1      unsigned char ADC_data;
+  59   1      
+  60   1      P0 = ADC_ch_no;           // to select channel no. send address on P0
+  61   1      
+  62   1      start_conv = 1; // ADC0808 will latch the address on L-H transition on the ALE pin
+  63   1      start_conv = 0; // ADC0808 will start conversion on H-L transition on the start pin
+  64   1      delay_ms(2);    // conversion time for ADC0808
+  65   1      
+  66   1      P0 =0xFF;               // output enable and read
+  67   1      output_enable = 1;      //Enabling o/p of ADC0808 for to read the converted data
+  68   1      ADC_data = P0;          //storing adc_data
+  69   1      output_enable = 0;      //disabling ADC 0808 o/p
+  70   1      return ADC_data;        //returning adc_data
+  71   1      }
+  72          
+  73          //Set left motor with velocity vel(compare value). 0x00 will give full (100% duty cycle) velocity, while 0
+             -xFF will give zero (0% duty cycle) velocity. Any value in between 0x00 and 0xFF will give intermediate velocity.
+  74          void left_motor_velocity(unsigned char vel)
+  75          {
+  76   1      CCAP0H=vel;
+  77   1      }
+  78          
+  79          //Set right motor with velocity vel(compare value). 0x00 will give full (100% duty cycle) velocity, while 
+             -0xFF will give zero (0% duty cycle) velocity. Any value in between 0x00 and 0xFF will give intermediate velocity.
+  80          void right_motor_velocity(unsigned char vel)
+  81          {
+  82   1      CCAP1H=vel;
+  83   1      }
+  84          
+  85          // motor direction control subroutines
+  86          void forward(void)
+  87          {
+  88   1      RF=1;
+  89   1      LF=1;
+  90   1      RB=0;
+  91   1      LB=0;
+  92   1      }
+  93          
+  94          void stop(void)
+  95          {
+  96   1      RF=0;
+  97   1      LF=0;
+  98   1      RB=0;
+  99   1      LB=0;
+ 100   1      }
+ 101          
+ 102          //initialise programmable counter array module to generate pwm
+ 103          //The CCAPnH register holds the reload value. CCAPnL register increments,and is loaded with this value eve
+             -rytime it overflows
+ 104          //Thus the value in CCAPnH can be changed to change the motor velocity
+ 105          void pca_init(void)
+ 106          {
+ 107   1       CMOD=0x80;        //80 sets PCA counter to run at Fosc/6; 
+ 108   1       CCON=0x40;        //start PCA counter
+ 109   1                                                      
+ 110   1       CCAP0L=0x00;   
+ 111   1       CCAP0H=0xFF;  //Left motor duty cycle register
+C51 COMPILER V8.18   MAIN                                                                  12/09/2009 11:26:56 PAGE 3   
+
+ 112   1        
+ 113   1       CCAP1L=0x00;                             
+ 114   1       CCAP1H=0xFF;  //Right motor duty cycle register
+ 115   1      
+ 116   1       CCAPM0=0x42;  //enable PWM mode and ECOM bits for left motor
+ 117   1       CCAPM1=0x42;  //enable PWM mode and ECOM bits for right motor
+ 118   1      }
+ 119          
+ 120          
+ 121          void main()
+ 122          {
+ 123   1       unsigned char i=0;
+ 124   1       output_enable = 0;
+ 125   1       start_conv = 0;    //de-assert all control signals to ADC
+ 126   1       
+ 127   1       buzzer = 1;  //buzzer off
+ 128   1       lcd_init(); //Initialize LCD
+ 129   1       pca_init(); //Initialize PCA to genarate PWM
+ 130   1      
+ 131   1      forward();
+ 132   1      left_motor_velocity(0x4F);  //0x00 will give full (100% duty cycle) velocity, while 0xFF will give zero (0
+             -% duty cycle) velocity. Any value in between 0x00 and 0xFF will give intermediate velocity.                   
+ 133   1      right_motor_velocity(0x4F); //0x00 will give full (100% duty cycle) velocity, while 0xFF will give zero (0
+             -% duty cycle) velocity. Any value in between 0x00 and 0xFF will give intermediate velocity.
+ 134   1      
+ 135   1      
+ 136   1       while(1)
+ 137   1       {
+ 138   2        for(i=0;i<8;i++)       //Doing ADC conversion
+ 139   2        {
+ 140   3        data_array[i] = ADC_conversion(i);
+ 141   3        }
+ 142   2      
+ 143   2        left_whiteline = data_array[4];   
+ 144   2        center_whiteline = data_array[5];
+ 145   2        right_whiteline = data_array[6];
+ 146   2        front_sharp_sensor = data_array[2];
+ 147   2      
+ 148   2        flag = 0; //reset the flag to 0
+ 149   2           
+ 150   2         //check if robot's center white line sensor is on the white line
+ 151   2        if(center_whiteline < 25)
+ 152   2        {
+ 153   3         flag = 1;  //set the flag to 0 so that further white line sensor comparision is disabled
+ 154   3         left_motor_velocity(0x4F);  //left and right motor is at same velocity
+ 155   3         right_motor_velocity(0x4F);
+ 156   3        }
+ 157   2      
+ 158   2        //robot is drifting towards left side, increase velocity of the left wheel and decrease velocity of the 
+             -right wheel
+ 159   2        if ((left_whiteline > 25) && (flag == 0))
+ 160   2        {
+ 161   3         flag = 1;  //set the flag to 0 so that further white line sensor comparision is disabled
+ 162   3         left_motor_velocity(0x3F);   //increase left motor velocity
+ 163   3         right_motor_velocity(0x5F);  //decrease  right motor velocity
+ 164   3        }
+ 165   2      
+ 166   2        //robot is drifting towards right side, decrease velocity of the left wheel and increase velocity of the
+             - right wheel
+ 167   2        if ((right_whiteline > 25) && (flag == 0))
+ 168   2        {
+ 169   3         flag = 1;  //set the flag to 0 so that further white line sensor comparision is disabled
+C51 COMPILER V8.18   MAIN                                                                  12/09/2009 11:26:56 PAGE 4   
+
+ 170   3         left_motor_velocity(0x5F);   //decrease  right motor velocity
+ 171   3         right_motor_velocity(0x3F);  //increase left motor velocity
+ 172   3        }
+ 173   2      
+ 174   2        if(front_sharp_sensor >= 110) // obstacle is near the robot, stop and turn on the buzzer
+ 175   2        {
+ 176   3         stop();
+ 177   3         buzzer = 0;  //buzzer on
+ 178   3        }
+ 179   2        
+ 180   2        else
+ 181   2        {
+ 182   3         forward();
+ 183   3         buzzer = 1;  //buzzer off
+ 184   3        }
+ 185   2      
+ 186   2        if((left_whiteline > 25) && (center_whiteline > 25) && (right_whiteline > 25)) // no whiteline is detect
+             -ed, stop (buzzer will not turn on)
+ 187   2        {
+ 188   3         stop();
+ 189   3        }
+ 190   2        
+ 191   2        lcdprint(data_array);//call this function to print the array onto the screen
+ 192   2        delay_ms(250);
+ 193   2       }
+ 194   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    812    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     15      38
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       1
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

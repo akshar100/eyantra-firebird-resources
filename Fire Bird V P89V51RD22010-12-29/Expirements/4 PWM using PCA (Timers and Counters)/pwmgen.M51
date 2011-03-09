@@ -1,0 +1,150 @@
+BL51 BANKED LINKER/LOCATER V6.20                                                        12/09/2009  11:18:43  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.20, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE main.obj TO pwmgen RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  pwmgen (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0018H     UNIT         ?PR?PCA_INIT?MAIN
+            CODE    0818H     0010H     UNIT         ?PR?MAIN?MAIN
+            CODE    0828H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0834H     0009H     UNIT         ?PR?FORWARD?MAIN
+            CODE    083DH     0003H     UNIT         ?PR?_LEFT_MOTOR_VELOCITY?MAIN
+            CODE    0840H     0003H     UNIT         ?PR?_RIGHT_MOTOR_VELOCITY?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   pwmgen (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?PCA_INIT?MAIN
+  +--> ?PR?_LEFT_MOTOR_VELOCITY?MAIN
+  +--> ?PR?_RIGHT_MOTOR_VELOCITY?MAIN
+  +--> ?PR?FORWARD?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  pwmgen (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+BL51 BANKED LINKER/LOCATER V6.20                                                      12/09/2009  11:18:43  PAGE 2
+
+
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:0840H         PUBLIC        _right_motor_velocity
+  D:00A8H         PUBLIC        IEN0
+  B:0090H.0       PUBLIC        LB
+  D:00E8H         PUBLIC        IEN1
+  D:00FAH         PUBLIC        CCAP0H
+  B:0090H.1       PUBLIC        LF
+  D:00FBH         PUBLIC        CCAP1H
+  B:00B0H.4       PUBLIC        RB
+  D:00EAH         PUBLIC        CCAP0L
+  D:00EBH         PUBLIC        CCAP1L
+  D:00DAH         PUBLIC        CCAPM0
+  D:00DBH         PUBLIC        CCAPM1
+  C:083DH         PUBLIC        _left_motor_velocity
+  B:0090H.2       PUBLIC        RF
+  D:00D9H         PUBLIC        CMOD
+  D:00D8H         PUBLIC        CCON
+  C:0818H         PUBLIC        main
+  D:00C0H         PUBLIC        WDTC
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00B8H         PUBLIC        IP0
+  D:00F8H         PUBLIC        IP1
+  C:0800H         PUBLIC        pca_init
+  D:00C8H         PUBLIC        T2CON
+  C:0834H         PUBLIC        forward
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _LEFT_MOTOR_VELOCITY
+  D:0007H         SYMBOL        vel
+  C:083DH         LINE#         22
+  C:083DH         LINE#         23
+  C:083DH         LINE#         24
+  C:083FH         LINE#         25
+  -------         ENDPROC       _LEFT_MOTOR_VELOCITY
+  -------         PROC          _RIGHT_MOTOR_VELOCITY
+  D:0007H         SYMBOL        vel
+  C:0840H         LINE#         28
+  C:0840H         LINE#         29
+  C:0840H         LINE#         30
+  C:0842H         LINE#         31
+  -------         ENDPROC       _RIGHT_MOTOR_VELOCITY
+  -------         PROC          FORWARD
+  C:0834H         LINE#         34
+  C:0834H         LINE#         35
+  C:0834H         LINE#         36
+  C:0836H         LINE#         37
+  C:0838H         LINE#         38
+  C:083AH         LINE#         39
+  C:083CH         LINE#         40
+  -------         ENDPROC       FORWARD
+  -------         PROC          PCA_INIT
+  C:0800H         LINE#         45
+  C:0800H         LINE#         46
+  C:0800H         LINE#         47
+BL51 BANKED LINKER/LOCATER V6.20                                                      12/09/2009  11:18:43  PAGE 3
+
+
+  C:0803H         LINE#         48
+  C:0806H         LINE#         50
+  C:0809H         LINE#         51
+  C:080CH         LINE#         53
+  C:080EH         LINE#         54
+  C:0811H         LINE#         56
+  C:0814H         LINE#         57
+  C:0817H         LINE#         58
+  -------         ENDPROC       PCA_INIT
+  -------         PROC          MAIN
+  C:0818H         LINE#         60
+  C:0818H         LINE#         61
+  C:0818H         LINE#         62
+  C:081BH         LINE#         70
+  C:0820H         LINE#         71
+  C:0823H         LINE#         73
+  C:0826H         LINE#         75
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0037H BYTE ( 2%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=70
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

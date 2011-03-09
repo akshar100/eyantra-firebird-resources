@@ -1,0 +1,3 @@
+"main.obj" 
+TO "motorcontrol" 
+RAMSIZE(256) 

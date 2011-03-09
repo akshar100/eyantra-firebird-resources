@@ -1,0 +1,4 @@
+--cpu ARM7TDMI "startup.o" "main.o" "lcd.o" --strict --scatter "WhiteLine.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\WhiteLine.map" -o "WhiteLine.axf"

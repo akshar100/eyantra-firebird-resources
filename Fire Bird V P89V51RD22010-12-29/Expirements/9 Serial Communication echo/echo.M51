@@ -1,0 +1,145 @@
+BL51 BANKED LINKER/LOCATER V6.20                                                        12/07/2009  15:38:23  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.20, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE main.obj TO echo RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  echo (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0012H     UNIT         ?PR?MAIN?MAIN
+            CODE    0812H     0011H     UNIT         ?PR?UART_SETUP?MAIN
+            CODE    0823H     000CH     UNIT         ?C_C51STARTUP
+            CODE    082FH     0006H     UNIT         ?PR?_TXDATA?MAIN
+            CODE    0835H     0003H     UNIT         ?PR?RXDATA?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   echo (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?UART_SETUP?MAIN
+  +--> ?PR?RXDATA?MAIN
+  +--> ?PR?_TXDATA?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  echo (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+BL51 BANKED LINKER/LOCATER V6.20                                                      12/07/2009  15:38:23  PAGE 2
+
+
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IEN0
+  D:00E8H         PUBLIC        IEN1
+  B:0098H.0       PUBLIC        RI
+  B:0098H.1       PUBLIC        TI
+  D:00D8H         PUBLIC        CCON
+  C:0800H         PUBLIC        main
+  D:0099H         PUBLIC        SBUF
+  D:00C0H         PUBLIC        WDTC
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  C:0835H         PUBLIC        RxData
+  C:082FH         PUBLIC        _TxData
+  D:00B8H         PUBLIC        IP0
+  D:00F8H         PUBLIC        IP1
+  D:008DH         PUBLIC        TH1
+  C:0812H         PUBLIC        uart_setup
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          UART_SETUP
+  C:0812H         LINE#         25
+  C:0812H         LINE#         26
+  C:0812H         LINE#         27
+  C:0815H         LINE#         28
+  C:0818H         LINE#         29
+  C:081BH         LINE#         30
+  C:081EH         LINE#         31
+  C:0820H         LINE#         32
+  C:0822H         LINE#         33
+  -------         ENDPROC       UART_SETUP
+  -------         PROC          RXDATA
+  -------         DO            
+  D:0007H         SYMBOL        rcv_data
+  -------         ENDDO         
+  C:0835H         LINE#         42
+  C:0835H         LINE#         43
+  C:0835H         LINE#         45
+  C:0837H         LINE#         46
+  C:0837H         LINE#         47
+  -------         ENDPROC       RXDATA
+  -------         PROC          _TXDATA
+  D:0007H         SYMBOL        tx_data
+  C:082FH         LINE#         56
+  C:082FH         LINE#         57
+  C:082FH         LINE#         59
+  C:0831H         LINE#         60
+  C:0834H         LINE#         61
+  -------         ENDPROC       _TXDATA
+  -------         PROC          MAIN
+  -------         DO            
+  D:0006H         SYMBOL        rx_data
+  D:0005H         SYMBOL        tx_data
+  -------         ENDDO         
+  C:0800H         LINE#         63
+  C:0800H         LINE#         64
+BL51 BANKED LINKER/LOCATER V6.20                                                      12/07/2009  15:38:23  PAGE 3
+
+
+  C:0800H         LINE#         66
+  C:0803H         LINE#         67
+  C:0803H         LINE#         68
+  C:0803H         LINE#         69
+  C:0806H         LINE#         70
+  C:0806H         LINE#         71
+  C:0809H         LINE#         72
+  C:0809H         LINE#         73
+  C:080CH         LINE#         74
+  C:080EH         LINE#         75
+  C:0810H         LINE#         76
+  C:0810H         LINE#         77
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 002CH BYTE ( 2%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=59
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

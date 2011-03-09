@@ -1,0 +1,166 @@
+BL51 BANKED LINKER/LOCATER V6.20                                                        12/09/2009  11:21:16  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.20, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE main.obj TO timer1 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?IMUL)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  timer1 (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?MAIN
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0067H     UNIT         ?C?LIB_CODE
+            CODE    08F3H     003AH     UNIT         ?PR?MAIN?MAIN
+            CODE    092DH     0009H     UNIT         ?PR?TIMER1_SETUP?MAIN
+            CODE    0936H     0009H     UNIT         ?PR?FORWARD?MAIN
+            CODE    093FH     0009H     UNIT         ?PR?STOP?MAIN
+            CODE    0948H     0005H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   timer1 (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN
+  +--> ?PR?TIMER1_SETUP?MAIN
+  +--> ?PR?FORWARD?MAIN
+  +--> ?PR?STOP?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  timer1 (MAIN)
+
+BL51 BANKED LINKER/LOCATER V6.20                                                      12/09/2009  11:21:16  PAGE 2
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  B:0090H.3       PUBLIC        left_velocity
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IEN0
+  B:0090H.0       PUBLIC        LB
+  D:00E8H         PUBLIC        IEN1
+  B:0090H.1       PUBLIC        LF
+  B:00B0H.4       PUBLIC        RB
+  B:0090H.2       PUBLIC        RF
+  D:00D8H         PUBLIC        CCON
+  C:08F3H         PUBLIC        main
+  D:0008H         PUBLIC        right_shaft_count
+  D:00C0H         PUBLIC        WDTC
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  C:093FH         PUBLIC        stop
+  D:00B8H         PUBLIC        IP0
+  D:00F8H         PUBLIC        IP1
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  D:00C8H         PUBLIC        T2CON
+  C:092DH         PUBLIC        timer1_setup
+  B:0090H.4       PUBLIC        right_velocity
+  C:0936H         PUBLIC        forward
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          TIMER1_SETUP
+  C:092DH         LINE#         26
+  C:092DH         LINE#         27
+  C:092DH         LINE#         28
+  C:0930H         LINE#         29
+  C:0933H         LINE#         30
+  C:0935H         LINE#         31
+  -------         ENDPROC       TIMER1_SETUP
+  -------         PROC          FORWARD
+  C:0936H         LINE#         33
+  C:0936H         LINE#         34
+  C:0936H         LINE#         35
+  C:0938H         LINE#         36
+  C:093AH         LINE#         37
+  C:093CH         LINE#         38
+  C:093EH         LINE#         39
+  -------         ENDPROC       FORWARD
+  -------         PROC          STOP
+  C:093FH         LINE#         41
+  C:093FH         LINE#         42
+  C:093FH         LINE#         43
+  C:0941H         LINE#         44
+  C:0943H         LINE#         45
+BL51 BANKED LINKER/LOCATER V6.20                                                      12/09/2009  11:21:16  PAGE 3
+
+
+  C:0945H         LINE#         46
+  C:0947H         LINE#         47
+  -------         ENDPROC       STOP
+  -------         PROC          MAIN
+  -------         DO            
+  D:0006H         SYMBOL        distance
+  D:0004H         SYMBOL        reqd_shaft_count_int
+  -------         ENDDO         
+  C:08F3H         LINE#         49
+  C:08F3H         LINE#         50
+  C:08F3H         LINE#         51
+  C:08F6H         LINE#         52
+  C:08F8H         LINE#         54
+  C:08FBH         LINE#         55
+  C:08FDH         LINE#         56
+  C:090DH         LINE#         58
+  C:090FH         LINE#         59
+  C:0911H         LINE#         61
+  C:0913H         LINE#         62
+  C:0916H         LINE#         64
+  C:091FH         LINE#         65
+  C:091FH         LINE#         66
+  C:0926H         LINE#         67
+  C:0928H         LINE#         69
+  C:092BH         LINE#         71
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        ?C?IMUL
+  C:088CH         PUBLIC        ?C?IMUL
+  -------         ENDMOD        ?C?IMUL
+
+  -------         MODULE        ?C?UIDIV
+  C:089EH         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0059H BYTE ( 4%) *
+******************************************************************************
+
+Program Size: data=11.0 xdata=0 code=336
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

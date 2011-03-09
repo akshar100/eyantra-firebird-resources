@@ -1,0 +1,102 @@
+C51 COMPILER V8.18   MAIN                                                                  12/09/2009 11:21:16 PAGE 1   
+
+
+C51 COMPILER V8.18, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*********************************************************************************************************
+             -*****
+   2                          Platform: Fire Bird V P89V51RD2
+   3                          Position Control Using Timer 1 as Counter
+   4                          Written by: Omkar Pradhan, NEX Robotics Pvt. Ltd.
+   5                          Edited By: Sachitanand Malewar, NEX Robotics Pvt. Ltd.
+   6                          Last Modification: 2009-12-08
+   7                          This programme counts encoder pulses from the right motor's position encoder using Timer 1 as counter
+   8                          at its external clock pin,  compares them to a required distance and stops robot after covering
+   9                          required distance. 
+  10                          Compiled with: uVision3 V3.90; C Compiler: C51.Exe, V8.18
+  11          **********************************************************************************************************
+             -****/                
+  12          
+  13          #include <intrins.h>
+  14          #include "p89v51rx2.H"
+  15          
+  16          sbit LB=P1^0;  //LEFT BACK Pin
+  17          sbit LF=P1^1;  //LEFT FRONT Pin
+  18          sbit RF=P1^2;  //RIGHT FRONT Pin
+  19          sbit RB=P3^4;  //RIGHT BACK Pin
+  20          sbit left_velocity=P1^3; //Left velocity control pin. 
+  21          sbit right_velocity=P1^4; //Right velocity control pin. 
+  22          
+  23          unsigned int right_shaft_count=0; //variable used to store pulse count from right position encoder
+  24          
+  25          //initializing timer/counter1 as counter in mode 2
+  26          void  timer1_setup(void)   
+  27          {
+  28   1       TMOD=0x60; // Timer 1 in 8 bit external counter mode
+  29   1       TH1=0; // reset counter value to 0       
+  30   1       TL1=0; // reset counter value to 0  
+  31   1      }
+  32          //motor control
+  33          void forward(void)
+  34          {
+  35   1      RF=1;
+  36   1      LF=1;
+  37   1      RB=0;
+  38   1      LB=0;
+  39   1      }
+  40          
+  41          void stop(void)
+  42          {
+  43   1      RF=0;
+  44   1      LF=0;
+  45   1      RB=0;
+  46   1      LB=0;
+  47   1      }
+  48          
+  49          void main()
+  50          {
+  51   1       unsigned int distance=0;
+  52   1       unsigned int reqd_shaft_count_int=0;
+  53   1       
+C51 COMPILER V8.18   MAIN                                                                  12/09/2009 11:21:16 PAGE 2   
+
+  54   1       timer1_setup();  //Timer 1 initialization 
+  55   1       distance=100;    //Enter here the distance to be travelled in mm    
+  56   1       reqd_shaft_count_int=(unsigned int) (distance*100 / 544);  //This equation will calculate the count requi
+             -red for distance to be travelled
+  57   1        
+  58   1       left_velocity=1; //setting this pin to one sets the motor to run at maximum velocity. Here enable pin of 
+             -Motor driver is always on unlike in PWM mode.
+  59   1       right_velocity=1;//setting this pin to one sets the motor to run at maximum velocity. Here enable pin of 
+             -Motor driver is always on unlike in PWM mode
+  60   1       
+  61   1       TR1=1;//start timer 1 
+  62   1       forward();  //set the robot to move forward     
+  63   1         
+  64   1       while(reqd_shaft_count_int > right_shaft_count) //loop until the required distance is travelled
+  65   1       {
+  66   2        right_shaft_count = TL1;//store the contents of TL1 in left_shaft_count 
+  67   2       }
+  68   1      
+  69   1       stop();         //stop the robot once requisite distance has been achieved
+  70   1       
+  71   1       while(1);
+  72   1      }//main ends
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     85    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

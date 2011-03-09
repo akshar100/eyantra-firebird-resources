@@ -1,0 +1,288 @@
+C51 COMPILER V8.18   MAIN                                                                  12/09/2009 11:23:03 PAGE 1   
+
+
+C51 COMPILER V8.18, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*********************************************************************************************************
+             -*****
+   2                          Platform: Fire Bird V P89V51RD2
+   3                          LCD Interfacing: String Display
+   4                          Written by: Omkar Pradhan, NEX Robotics Pvt. Ltd.
+   5                          Edited By: Sachitanand Malewar, NEX Robotics Pvt. Ltd.
+   6                          Last Modification: 2009-12-08
+   7                          This program initializes the LCD and displays text onto the screen
+   8                          Compiled with: uVision3 V3.90; C Compiler: C51.Exe, V8.18
+   9          **********************************************************************************************************
+             -****/                
+  10          
+  11          #include <intrins.h>
+  12          #include "p89v51rx2.h"
+  13          
+  14          sbit buzzer=P2^7;  //buzzer = 1; buzzer off, buzzer = 0; buzzer on,
+  15          
+  16          //program specific declarations
+  17          sbit RS = P2^6;    //P2^6 is connected to the RS line of LCD 
+  18          sbit RW = P2^5;    //P2^5 is connected to the RW line of LCD
+  19          sbit E = P2^4;     //P2^4 is connected to the EN line of LCD
+  20          sbit BUSY = P2^3;  //P2^3 is connected to the DB3 pin of LCD
+  21          
+  22          unsigned char A=0; //used in the swap(unsigned char tempdata) function
+  23          
+  24          // function for giving a delay of ms milliseconds
+  25          void delay_ms(unsigned int ms)
+  26          {
+  27   1      unsigned int i,j;
+  28   1      
+  29   1      for(i=0;i<ms;i++)
+  30   1      for(j=0;j<53;j++);
+  31   1      }
+  32          
+  33          // subroutines required to check if LCD has finished executing previous command and is ready to accept nex
+             -t one
+  34           void ready(void) 
+  35           {
+  36   1        bit readybit;
+  37   1        unsigned char buzzer_status = 0;
+  38   1        buzzer_status = P2 & 0x80; //storing original buzzer status
+  39   1          
+  40   1        E = 0;
+  41   1        RS = 0;                        //  to select comand register
+  42   1        RW = 1;                        // to select read mode
+  43   1      
+  44   1        while(readybit == 1)   // keep checking MSB bit till busy goes low
+  45   1        {
+  46   2         E = 1;                // high to low transition on E pin requird to clock in data
+  47   2         P2 = 0x7F | buzzer_status;            // to set this pin in read mode to read busy signal from MSB (D7) of the L
+             -CD
+  48   2         readybit = P2^3;
+  49   2         E = 0;
+  50   2        }
+  51   1       }
+C51 COMPILER V8.18   MAIN                                                                  12/09/2009 11:23:03 PAGE 2   
+
+  52          
+  53          /******************************************************************************************************
+  54                  Function: swap(unsigned char tempdata)
+  55                  
+  56                  Description: This function swaps the data which is passed to it 
+  57                                           in such away that higher nibble is pushed in place of
+  58                                           lower nibble because lower nibble of microcontroller is being used for data transfer.
+  59          *******************************************************************************************************/
+  60          
+  61          unsigned char swap(unsigned char tempdata)
+  62          {
+  63   1      A = tempdata;
+  64   1      A = _cror_(A,4);        // this uses an inbuilt rotate function to get MSB's in LSB's
+  65   1      tempdata = A & 0x0F;
+  66   1      return tempdata;
+  67   1      }       
+  68          
+  69          /****************************************************************
+  70                  Function: commandsend(unsigned char command)
+  71            
+  72              Description: This function sends data to LCD as command by
+  73                                           selecting the instruction register
+  74          ****************************************************************/
+  75          
+  76          void commandsend(unsigned char command)
+  77          { 
+  78   1      unsigned char temp;
+  79   1      unsigned char buzzer_status = 0;
+  80   1        
+  81   1      buzzer_status = P2 & 0x80; //storing original buzzer status
+  82   1      
+  83   1      ready();       // checking for busy bit to send next nibble
+  84   1      temp = swap(command);
+  85   1      P2 = temp | buzzer_status; // to get higher nibble
+  86   1      RW = 0;        // to select write mode
+  87   1      RS = 0;        // to select command register
+  88   1      E = 1;         // to get the enable high to low transition
+  89   1      E = 0;         // in order to gate in the data
+  90   1      
+  91   1      P2 = (command & 0x0F) | buzzer_status; // to get the lower nibble
+  92   1      RW = 0;
+  93   1      RS = 0;        // repeat again all above steps    
+  94   1      
+  95   1      E = 1;
+  96   1      E = 0;
+  97   1      delay_ms(2);  //delay of 2 ms
+  98   1      }
+  99          
+ 100          /***********************************************************
+ 101                  Function: datasend(unsigned char command)
+ 102            
+ 103              Description: This function sends data to LCD as data by
+ 104                                           selecting the data register
+ 105          ***********************************************************/
+ 106          
+ 107          void datasend(unsigned char lcddata)
+ 108          {
+ 109   1      unsigned char temp;
+ 110   1      unsigned char buzzer_status = 0;
+ 111   1      
+ 112   1      buzzer_status = P2 & 0x80; //storing original buzzer status
+ 113   1      
+C51 COMPILER V8.18   MAIN                                                                  12/09/2009 11:23:03 PAGE 3   
+
+ 114   1      temp = swap(lcddata);
+ 115   1      ready();        // checking for busy bit to send next nibble
+ 116   1      P2 = temp | buzzer_status;  // to get higher nibble
+ 117   1      RW = 0;  // to select write mode
+ 118   1      RS = 1;  // to select data register
+ 119   1               
+ 120   1      E = 1;
+ 121   1      E = 0;
+ 122   1      
+ 123   1      
+ 124   1      P2 = (lcddata & 0x0F)  | buzzer_status;
+ 125   1      RW = 0;
+ 126   1      RS = 1;
+ 127   1      E = 1;
+ 128   1      E = 0;
+ 129   1      delay_ms(2);     //delay of 2 ms
+ 130   1      }
+ 131          
+ 132          /***********************************************************************
+ 133           Function: lcd_init(void) 
+ 134           Description: This function initialises LCD display in 4-bit mode.
+ 135                        The intialisation functions are 8-bit wide, so we write
+ 136                                    each inst into two seperate nibbles.
+ 137                                    Following instructions are used for Lcd init.
+ 138                                    1.>  0x30 8-bit mode
+ 139                                    2.>  0x28 4-bit mode and 5x8 dot character font
+ 140                                    3.>  0x0E Turn ON lcd and cursor
+ 141                                    4.>  0x06 Autoincrement cursor position
+ 142                                    5.>  0x01 Clear Lcd display   
+ 143                                    6.>  0x80 for setting cursor position
+ 144          ************************************************************************/
+ 145          
+ 146          void lcd_init(void)
+ 147          {                                               
+ 148   1      unsigned char buzzer_status = 0;
+ 149   1      
+ 150   1      buzzer_status = P2 & 0x80; //storing original buzzer status
+ 151   1      
+ 152   1      
+ 153   1      RS = 0;  //  to select comand register
+ 154   1      RW = 0;  // to select write mode
+ 155   1      delay_ms(40);  // on power ON we must allow a delay of 40ms for VCC to settle
+ 156   1       
+ 157   1      E = 0;
+ 158   1      P2 = 0x03 | buzzer_status; // send instruction to set FUNCTION SET to 8 bit mode though we have only conne
+             -cted 4 bit data bus because by default on power ON LCD is in 8 bit mode
+ 159   1      E =  1;
+ 160   1      E = 0;
+ 161   1      
+ 162   1      delay_ms(4);  // delay of 4ms
+ 163   1        
+ 164   1      P2 = 0x03 | buzzer_status;        // send the same instruction two times again. This way the LCD controller kno
+             -ws that we are operating in 4 bit mode
+ 165   1      E =  1;
+ 166   1      E = 0;
+ 167   1      delay_ms(2);       // delay of  2ms
+ 168   1      P2 = 0x03  | buzzer_status;
+ 169   1      E =  1;
+ 170   1      E = 0;
+ 171   1      delay_ms(2); // delay of  2ms
+ 172   1      
+ 173   1      P2 = 0x02  | buzzer_status;              // send FUNCTION SET instruction for 4 bit mode
+C51 COMPILER V8.18   MAIN                                                                  12/09/2009 11:23:03 PAGE 4   
+
+ 174   1      E =  1;
+ 175   1      E = 0;
+ 176   1      ready();
+ 177   1      P2 = 0x02  | buzzer_status; // again we send FUNCTION SET higher bits to keep 4 bit mode operation but mai
+             -n aim is to set the parameters in lower bits
+ 178   1      
+ 179   1      E =  1;
+ 180   1      E = 0;
+ 181   1      P2 = 0x08  | buzzer_status; // these are the lower bits of FUNCTION SET. They set LCD to 1 display line an
+             -d set font size to 5 x 8 dots
+ 182   1      
+ 183   1      E =  1;
+ 184   1      E = 0;
+ 185   1      ready();
+ 186   1      P2 = 0x00  | buzzer_status; // higher bits of DISPLAY OFF instruction
+ 187   1      E =  1;
+ 188   1      E = 0;
+ 189   1      P2 = 0x08  | buzzer_status;  // lower bits of DISPLAY OFF instruction
+ 190   1      E =  1;
+ 191   1      E = 0;
+ 192   1      ready();
+ 193   1      P2 = 0x00  | buzzer_status;  // higher bits of CLEAR instruction
+ 194   1      E =  1;
+ 195   1      E = 0;
+ 196   1      P2 = 0x01  | buzzer_status; // lower bits of CLEAR instruction
+ 197   1      E =  1;
+ 198   1      E = 0;
+ 199   1      ready();
+ 200   1      P2 = 0x00  | buzzer_status;// higher bits of ENTRY MODE instruction
+ 201   1      E =  1;
+ 202   1      E = 0;
+ 203   1      
+ 204   1      P2 = 0x06  | buzzer_status;// lower bits of ENTRY MODE instruction to set increment i.e display to right s
+             -ide mode and no shift
+ 205   1      E =  1;
+ 206   1      E = 0;
+ 207   1      ready();
+ 208   1      
+ 209   1      commandsend(0x0F); // set LCD ON; CURSOR OFF; BLINK ON.
+ 210   1      }
+ 211          
+ 212          void lcd_display(void)
+ 213          {
+ 214   1      int i=0;
+ 215   1      unsigned char lcd_data1[16]={"  NEX Robotics  "};  // While defining the character array make sure that it
+             - is less than 16 characters(for each line of LCD) & long enough to hold all characters in the string 
+ 216   1      unsigned char lcd_data2[16]={"ERTSLab CSE IITB"};
+ 217   1      
+ 218   1      commandsend(0x01); // clear display.
+ 219   1      commandsend(0x06);  // auto increment cursor position
+ 220   1      
+ 221   1      for(i=0;i<16;i++)
+ 222   1      {
+ 223   2       datasend(lcd_data1[i]);
+ 224   2      }
+ 225   1      
+ 226   1      commandsend(0xC0);         //80h+40h. 80h for setting cursor position
+ 227   1                                                    //40h is the address for the first character on thesecon line
+ 228   1      
+ 229   1      for(i=0;i<16;i++)
+ 230   1      {
+ 231   2       datasend(lcd_data2[i]);
+C51 COMPILER V8.18   MAIN                                                                  12/09/2009 11:23:03 PAGE 5   
+
+ 232   2      }
+ 233   1      }
+ 234          
+ 235          
+ 236          void main (void)
+ 237          {
+ 238   1      lcd_init();
+ 239   1      buzzer = 1; //buzzer off
+ 240   1      
+ 241   1      while(1)
+ 242   1      {
+ 243   2       lcd_display();
+ 244   2       delay_ms(1000);
+ 245   2      }
+ 246   1      
+ 247   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    416    ----
+   CONSTANT SIZE    =     32    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1      32
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       1
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

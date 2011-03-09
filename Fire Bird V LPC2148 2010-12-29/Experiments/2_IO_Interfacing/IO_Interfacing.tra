@@ -1,0 +1,20 @@
+*** Creating Trace Output File 'IO_Interfacing.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"startup.o"'
+### List of Objects: adding '"main.o"'
+### ADS-LD Command completed:
+--cpu ARM7TDMI "startup.o" "main.o" --strict --scatter "IO_Interfacing.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\IO_Interfacing.map" -o "IO_Interfacing.axf"### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'IO_Interfacing.axf'
+### ADS-LD Command File: 'IO_Interfacing.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'IO_Interfacing.lnp', Handle=0x00000480
+### Writing '.lnp' file
+### ADS-LD Command file 'IO_Interfacing.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

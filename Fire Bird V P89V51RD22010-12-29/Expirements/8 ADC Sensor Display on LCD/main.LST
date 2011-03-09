@@ -1,0 +1,107 @@
+C51 COMPILER V8.18   MAIN                                                                  12/09/2009 11:24:50 PAGE 1   
+
+
+C51 COMPILER V8.18, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*********************************************************************************************************
+             -*****
+   2                          Platform: Fire Bird V P89V51RD2
+   3                          ADC Sensor Display on LCD
+   4                          Written by: Omkar Pradhan, NEX Robotics Pvt. Ltd.
+   5                          Edited By: Sachitanand Malewar, NEX Robotics Pvt. Ltd.
+   6                          Last Modification: 2009-12-08
+   7                          This program uses ADC0808 Analog to Digital Converter to aquire analog sensor data from the robot.
+   8                          This analog data is displayed as a 8 element array onto the LCD screen by using a .h file "lcd_array_dis
+             -p.h"
+   9                          Compiled with: uVision3 V3.90; C Compiler: C51.Exe, V8.18
+  10          **********************************************************************************************************
+             -****/                
+  11          
+  12          #include <intrins.h>
+  13          #include "p89v51rx2.H"
+  14          #include "lcd_array_disp.h"
+  15          
+  16          sbit buzzer=P2^7; //buzzer = 1; buzzer off, buzzer = 0; buzzer on,
+  17          
+  18          sbit start_conv = P3^6;          //P3^6 is connected to Start and ALE pin of ADC0808
+  19          sbit output_enable = P3^7;               //P3^7 is connected to Output Enable Pin of ADC0808
+  20          
+  21          unsigned char data_array[8];//initialize an array of 8 elements to display onto the LCD screen
+  22          unsigned char i=0;  //used in main function during ADC conversion 
+  23          
+  24          /********************************************************************************
+  25                  Function: ADC_conversion(unsigned char ADC_channel_number)
+  26          
+  27                  Description: This function performs ADC conversion of a channel number 
+  28                                           that is passed to it. The return value of this function contains 
+  29                                           digital data of the selected channel.
+  30                             
+  31                                           Analog Sensor Pin Mapping
+  32            
+  33                           IN0-----> Optional
+  34                                           IN1-----> Batt. Voltage
+  35                                           IN2-----> Front Sharp IR Range sensor
+  36                                           IN3-----> Left Proximity
+  37                                           IN4-----> Left Whiteline
+  38                                           IN5-----> Center Whiteline
+  39                                           IN6-----> Right Whiteline
+  40                                           IN7-----> Right Proximity
+  41          ********************************************************************************/
+  42          unsigned char ADC_conversion(unsigned char ADC_ch_no)
+  43          {
+  44   1      unsigned char ADC_data;
+  45   1      
+  46   1      P0 = ADC_ch_no;           // to select channel no. send address on P0
+  47   1      
+  48   1      start_conv = 1; // ADC0808 will latch the address on L-H transition on the ALE pin
+  49   1      start_conv = 0; // ADC0808 will start conversion on H-L transition on the start pin
+  50   1      delay_ms(2);    // conversion time for ADC0808
+  51   1      
+  52   1      P0 =0xFF;               // output enable and read
+C51 COMPILER V8.18   MAIN                                                                  12/09/2009 11:24:50 PAGE 2   
+
+  53   1      output_enable = 1;      //Enabling o/p of ADC0808 for to read the converted data
+  54   1      ADC_data = P0;          //storing adc_data
+  55   1      output_enable = 0;      //disabling ADC 0808 o/p
+  56   1      return ADC_data;        //returning adc_data
+  57   1      }
+  58          
+  59          
+  60          void main()
+  61          {
+  62   1       unsigned char i=0;
+  63   1       output_enable = 0;
+  64   1       start_conv = 0;    //de-assert all control signals to ADC
+  65   1       
+  66   1       buzzer = 1; //buzzer off
+  67   1       lcd_init(); //Initialize LCD
+  68   1      
+  69   1       while(1)
+  70   1       {
+  71   2        for(i=0;i<8;i++)
+  72   2        {
+  73   3        data_array[i] = ADC_conversion(i);
+  74   3        }
+  75   2        
+  76   2        lcdprint(data_array);//call this function to print the array onto the screen
+  77   2        delay_ms(1000);
+  78   2       }
+  79   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    625    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     10      38
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       1
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

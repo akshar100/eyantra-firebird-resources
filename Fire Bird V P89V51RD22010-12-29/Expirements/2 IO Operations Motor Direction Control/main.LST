@@ -1,0 +1,160 @@
+C51 COMPILER V8.18   MAIN                                                                  12/09/2009 11:17:14 PAGE 1   
+
+
+C51 COMPILER V8.18, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /**************************************************************************************************
+   2                          Platform: Fire Bird V P89V51RD2
+   3                          IO Operations Motor Direction Control
+   4                          Written by: Omkar Pradhan, NEX Robotics Pvt. Ltd.
+   5                          Edited By: Sachitanand Malewar, NEX Robotics Pvt. Ltd.
+   6                          Last Modification: 2009-12-08
+   7                          This program shows how to control directions of the robot.
+   8                          Compiled with: uVision3 V3.90; C Compiler: C51.Exe, V8.18
+   9          **************************************************************************************************/                                                     
+             -         
+  10           
+  11           
+  12          #include <intrins.h>
+  13          #include "p89v51rx2.H"
+  14          
+  15          sbit buzzer=P2^7;  // buzzer is connected to P2.7. buzzer = 1; buzzer off, buzzer = 0; buzzer on, 
+  16          sbit LB=P1^0;      //LEFT BACK Pin
+  17          sbit LF=P1^1;           //LEFT FRONT Pin
+  18          sbit RF=P1^2;           //RIGHT FRONT Pin
+  19          sbit RB=P3^4;           //RIGHT BACK Pin
+  20          sbit left_velocity=P1^3;//Left velocity control pin. 
+  21          sbit right_velocity=P1^4;//Right velocity control pin. 
+  22          
+  23          // function for giving a delay of ms milliseconds
+  24          
+  25          void delay_ms(unsigned int ms)
+  26          {
+  27   1      unsigned int i,j;
+  28   1      
+  29   1      for(i=0;i<ms;i++)
+  30   1      for(j=0;j<53;j++);
+  31   1      }
+  32          
+  33                  
+  34          /**********************************************************************************
+  35          RF =  RIGHT MOTOR FORWARD
+  36          RB = RIGHT MOTOR BACKWARD
+  37          LF = LEFT MOTOR FORWARD
+  38          LB = LEFT MOTOR BACKWARD
+  39          **********************************************************************************/
+  40          
+  41          
+  42          //direction control subroutines
+  43          
+  44          void forward(void)
+  45          {
+  46   1      
+  47   1      
+  48   1      RF=1;
+  49   1      LF=1;
+  50   1      RB=0;
+  51   1      LB=0;
+  52   1      }
+  53          
+  54          void backward(void)
+C51 COMPILER V8.18   MAIN                                                                  12/09/2009 11:17:14 PAGE 2   
+
+  55          {
+  56   1      
+  57   1      
+  58   1      RF=0;
+  59   1      LF=0;
+  60   1      RB=1;
+  61   1      LB=1;
+  62   1      }
+  63          
+  64          
+  65          void left(void)
+  66          {
+  67   1      RF=1;
+  68   1      LF=0;
+  69   1      RB=0;
+  70   1      LB=1;
+  71   1      }
+  72          
+  73          void right(void)  
+  74          {
+  75   1      RF=0;
+  76   1      LF=1;
+  77   1      RB=1;
+  78   1      LB=0;
+  79   1      }
+  80          
+  81          void stop(void)
+  82          {
+  83   1      
+  84   1      RF=0;
+  85   1      LF=0;
+  86   1      RB=0;
+  87   1      LB=0;
+  88   1      }
+  89          
+  90          
+  91          //main function starts here
+  92          void main (void)
+  93          
+  94          {
+  95   1      
+  96   1      buzzer=1;                 //switch off the buzzer
+  97   1      left_velocity=1;  //setting this pin to one sets the motor to run at maximum velocity. 
+  98   1                                        //Thus enable pin of Motor driver is always on unlike in PWM mode.
+  99   1      right_velocity=1; //setting this pin to one sets the motor to run at maximum velocity.
+ 100   1                                        //Thus enable pin of Motor driver is always on unlike in PWM mode
+ 101   1                                       
+ 102   1      while(1)
+ 103   1      {
+ 104   2      forward();
+ 105   2      delay_ms(2000); //motor moves in forward direction for 2000 milliseconds
+ 106   2      
+ 107   2      stop();
+ 108   2      delay_ms(1000); //motor stops for 1000 milliseconds
+ 109   2      
+ 110   2      backward();
+ 111   2      delay_ms(2000); //motor moves in backward direction for 2000 milliseconds
+ 112   2      
+ 113   2      stop();
+ 114   2      delay_ms(1000); //motor stops for 1000 milliseconds
+ 115   2      
+ 116   2      left();
+C51 COMPILER V8.18   MAIN                                                                  12/09/2009 11:17:14 PAGE 3   
+
+ 117   2      delay_ms(2000); //motor moves in left direction for 2000 milliseconds
+ 118   2      
+ 119   2      stop();
+ 120   2      delay_ms(1000); //motor stops for 1000 milliseconds
+ 121   2      
+ 122   2      right();
+ 123   2      delay_ms(2000); //motor moves in right direction for 2000 milliseconds
+ 124   2      
+ 125   2      stop();
+ 126   2      delay_ms(2000); //motor stops for 2000 milliseconds
+ 127   2      
+ 128   2      }
+ 129   1      }
+ 130          
+ 131          
+ 132          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    133    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

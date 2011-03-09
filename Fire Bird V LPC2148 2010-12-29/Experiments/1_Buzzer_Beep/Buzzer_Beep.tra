@@ -1,0 +1,20 @@
+*** Creating Trace Output File 'Buzzer_Beep.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"startup.o"'
+### List of Objects: adding '"main.o"'
+### ADS-LD Command completed:
+--cpu ARM7TDMI "startup.o" "main.o" --strict --scatter "Buzzer_Beep.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\Buzzer_Beep.map" -o "Buzzer_Beep.axf"### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'Buzzer_Beep.axf'
+### ADS-LD Command File: 'Buzzer_Beep.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'Buzzer_Beep.lnp', Handle=0x00000510
+### Writing '.lnp' file
+### ADS-LD Command file 'Buzzer_Beep.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

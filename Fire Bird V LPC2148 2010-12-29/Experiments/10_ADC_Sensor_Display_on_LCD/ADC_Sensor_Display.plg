@@ -1,0 +1,17 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Rohit\Experiments\10_ADC_Sensor_Display_on_LCD\ADC_Sensor_Display.uvproj
+Project File Date:  11/01/2010
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling Startup.s...
+compiling main.c...
+compiling Lcd.c...
+linking...
+Program Size: Code=13192 RO-data=160 RW-data=0 ZI-data=1288  
+FromELF: creating hex file...
+"ADC_Sensor_Display.axf" - 0 Error(s), 0 Warning(s).

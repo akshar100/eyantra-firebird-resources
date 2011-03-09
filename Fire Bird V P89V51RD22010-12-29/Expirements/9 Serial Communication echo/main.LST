@@ -1,0 +1,104 @@
+C51 COMPILER V8.18   MAIN                                                                  12/07/2009 15:38:22 PAGE 1   
+
+
+C51 COMPILER V8.18, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /**************************************************************************
+   2          This Program echos back a character sent from the PC through serial communication
+   3          
+   4          **************************************************************************/
+   5          
+   6          #include <intrins.h>
+   7          #include "p89v51rx2.H"
+   8          
+   9          sbit buzzer = P2^7;
+  10          
+  11          /**************************************************************************
+  12                  Function: uart_setup()
+  13                  
+  14                  Description: This function configures Timer1 for generating the Baudrate.
+  15                                       The TH1 register should be written with following hex numbers
+  16                                   for desired baud rate. After setting the baudrate, SCON register
+  17                                       for enabling Rx and setting up the frame format.
+  18                  
+  19                                   9600 ----->  0xFD
+  20                                       4800 ----->  0xFA
+  21                                       2400 ----->  0xF4
+  22                                       1200 ----->  0xE8
+  23          
+  24          **************************************************************************/
+  25          void uart_setup()
+  26          {
+  27   1          TMOD = 0x20;                // configure timer1 for Mode 2 operation for the correct baud rate 
+  28   1          TH1 = 0xFD;         // 9600 bps for 11.0592 MHz clock 
+  29   1          TCON = 0x40;        // Start timer 1 by setting TR1 = 1 
+  30   1          SCON = 0x50;                // Set Serial IO to receive and normal mode 
+  31   1              RI=0;               //Receive Interrupt Flag is cleared
+  32   1              TI=0;                           //Tx interrupt flag is cleared
+  33   1      }                                
+  34          
+  35          /***************************************************************************
+  36                  Function: void char RxData()
+  37                  
+  38                  Description: This function copies any data that is present in the SBUF 
+  39                                       register and returns it to the calling function.
+  40          ***************************************************************************/
+  41          
+  42           unsigned char RxData()
+  43          {
+  44   1          unsigned char rcv_data;
+  45   1              rcv_data = SBUF;              //if any data is available copy it from SBUF
+  46   1              return rcv_data;              //return the received data
+  47   1      }
+  48          
+  49          /***************************************************************************
+  50                  Function: void TxData(unsigned char tx_data)
+  51                  
+  52                  Description: This function transmits  any data that is passed to it
+  53                               and waits until it is transmitted.
+  54          ***************************************************************************/
+  55          
+C51 COMPILER V8.18   MAIN                                                                  12/07/2009 15:38:22 PAGE 2   
+
+  56          void TxData(unsigned char tx_data)
+  57          {
+  58   1              
+  59   1              SBUF = tx_data;                 //Transmit data that is passed to this function
+  60   1              while(TI == 0);                                 //wait while data is being transmitted
+  61   1      }
+  62          
+  63          void main(void)
+  64          {
+  65   1       unsigned char rx_data,tx_data;
+  66   1       uart_setup(); // calling the UART setup function
+  67   1       while(1)                                       //loop continuously
+  68   1       {
+  69   2        if (RI==1)                // if any data is present store it and transmit it back 
+  70   2        {
+  71   3         rx_data = RxData();      //get the received data
+  72   3         tx_data = rx_data;
+  73   3         TxData(tx_data);         // transmit it back to the PC. This data can be viewed onto the 'terminal'
+  74   3         RI = 0;                  //Clear receive interrupt. Must be cleared by the user.
+  75   3         TI = 0;                                      //Clear transmit interrupt. Must be cleared by the user.
+  76   3        }
+  77   2       }
+  78   1      }
+  79          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     44    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

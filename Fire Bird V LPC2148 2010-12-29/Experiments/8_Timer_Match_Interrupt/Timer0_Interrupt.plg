@@ -1,0 +1,16 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Rohit\Experiments\8_Timer_Match_Interrupt\Timer0_Interrupt.uvproj
+Project File Date:  10/30/2010
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling Startup.s...
+compiling main.c...
+linking...
+Program Size: Code=1184 RO-data=32 RW-data=4 ZI-data=1260  
+FromELF: creating hex file...
+"Timer0_Interrupt.axf" - 0 Error(s), 0 Warning(s).

@@ -1,0 +1,4 @@
+--cpu ARM7TDMI "startup.o" "main.o" --strict --scatter "Velocity_Control.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\Velocity_Control.map" -o "Velocity_Control.axf"

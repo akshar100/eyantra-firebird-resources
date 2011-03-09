@@ -1,0 +1,3 @@
+"main.obj" 
+TO "echo" 
+RAMSIZE(256) 
