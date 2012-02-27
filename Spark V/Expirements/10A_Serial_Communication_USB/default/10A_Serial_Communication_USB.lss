@@ -1,0 +1,559 @@
+
+10A_Serial_Communication_USB.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000001b8  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .debug_aranges 00000020  00000000  00000000  0000020c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  2 .debug_pubnames 000000e6  00000000  00000000  0000022c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_info   0000056c  00000000  00000000  00000312  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_abbrev 0000013b  00000000  00000000  0000087e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_line   00000445  00000000  00000000  000009b9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_frame  00000100  00000000  00000000  00000e00  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_str    00000191  00000000  00000000  00000f00  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_loc    00000166  00000000  00000000  00001091  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   8:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  10:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  14:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  18:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  1c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  20:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  24:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  28:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  2c:	0c 94 9f 00 	jmp	0x13e	; 0x13e <__vector_11>
+  30:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  34:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  38:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  3c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  40:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  44:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  48:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  4c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  50:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+  60:	0e 94 d7 00 	call	0x1ae	; 0x1ae <main>
+  64:	0c 94 da 00 	jmp	0x1b4	; 0x1b4 <_exit>
+
+00000068 <__bad_interrupt>:
+  68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000006c <motion_pin_config>:
+#include <avr/interrupt.h>
+#include <util/delay.h>
+
+void motion_pin_config (void)
+{
+ DDRB = DDRB | 0x0F;   //set direction of the PORTB3 to PORTB0 pins as output
+  6c:	87 b3       	in	r24, 0x17	; 23
+  6e:	8f 60       	ori	r24, 0x0F	; 15
+  70:	87 bb       	out	0x17, r24	; 23
+ PORTB = PORTB & 0xF0; // set initial value of the PORTB3 to PORTB0 pins to logic 0
+  72:	88 b3       	in	r24, 0x18	; 24
+  74:	80 7f       	andi	r24, 0xF0	; 240
+  76:	88 bb       	out	0x18, r24	; 24
+ DDRD = DDRD | 0x30;   //Setting PD4 and PD5 pins as output for PWM generation
+  78:	81 b3       	in	r24, 0x11	; 17
+  7a:	80 63       	ori	r24, 0x30	; 48
+  7c:	81 bb       	out	0x11, r24	; 17
+ PORTD = PORTD | 0x30; //PD4 and PD5 pins are for velocity control using PWM
+  7e:	82 b3       	in	r24, 0x12	; 18
+  80:	80 63       	ori	r24, 0x30	; 48
+  82:	82 bb       	out	0x12, r24	; 18
+}
+  84:	08 95       	ret
+
+00000086 <buzzer_pin_config>:
+
+void buzzer_pin_config (void)
+{
+ DDRC = DDRC | 0x08;		//Setting PORTC 3 as outpt
+  86:	a3 9a       	sbi	0x14, 3	; 20
+ PORTC = PORTC & 0xF7;		//Setting PORTC 3 logic low to turnoff buzzer
+  88:	ab 98       	cbi	0x15, 3	; 21
+}
+  8a:	08 95       	ret
+
+0000008c <port_init>:
+#include <avr/interrupt.h>
+#include <util/delay.h>
+
+void motion_pin_config (void)
+{
+ DDRB = DDRB | 0x0F;   //set direction of the PORTB3 to PORTB0 pins as output
+  8c:	87 b3       	in	r24, 0x17	; 23
+  8e:	8f 60       	ori	r24, 0x0F	; 15
+  90:	87 bb       	out	0x17, r24	; 23
+ PORTB = PORTB & 0xF0; // set initial value of the PORTB3 to PORTB0 pins to logic 0
+  92:	88 b3       	in	r24, 0x18	; 24
+  94:	80 7f       	andi	r24, 0xF0	; 240
+  96:	88 bb       	out	0x18, r24	; 24
+ DDRD = DDRD | 0x30;   //Setting PD4 and PD5 pins as output for PWM generation
+  98:	81 b3       	in	r24, 0x11	; 17
+  9a:	80 63       	ori	r24, 0x30	; 48
+  9c:	81 bb       	out	0x11, r24	; 17
+ PORTD = PORTD | 0x30; //PD4 and PD5 pins are for velocity control using PWM
+  9e:	82 b3       	in	r24, 0x12	; 18
+  a0:	80 63       	ori	r24, 0x30	; 48
+  a2:	82 bb       	out	0x12, r24	; 18
+}
+
+void buzzer_pin_config (void)
+{
+ DDRC = DDRC | 0x08;		//Setting PORTC 3 as outpt
+  a4:	a3 9a       	sbi	0x14, 3	; 20
+ PORTC = PORTC & 0xF7;		//Setting PORTC 3 logic low to turnoff buzzer
+  a6:	ab 98       	cbi	0x15, 3	; 21
+//Function to initialize ports
+void port_init()
+{
+ motion_pin_config();
+ buzzer_pin_config();
+}
+  a8:	08 95       	ret
+
+000000aa <uart0_init>:
+// actual: baud rate:9600 (0.0%)
+// char size: 8 bit
+// parity: Disabled
+void uart0_init(void)
+{
+ UCSRB = 0x00; //disable while setting baud rate
+  aa:	1a b8       	out	0x0a, r1	; 10
+ UCSRA = 0x00;
+  ac:	1b b8       	out	0x0b, r1	; 11
+ UCSRC = 0x86;
+  ae:	86 e8       	ldi	r24, 0x86	; 134
+  b0:	80 bd       	out	0x20, r24	; 32
+ UBRRL = 0x2F; //set baud rate lo  //67 is for 16MHz 9600 baudrate
+  b2:	8f e2       	ldi	r24, 0x2F	; 47
+  b4:	89 b9       	out	0x09, r24	; 9
+ UBRRH = 0x00; //set baud rate hi
+  b6:	10 bc       	out	0x20, r1	; 32
+ UCSRB = 0x98; 
+  b8:	88 e9       	ldi	r24, 0x98	; 152
+  ba:	8a b9       	out	0x0a, r24	; 10
+}
+  bc:	08 95       	ret
+
+000000be <motion_set>:
+void motion_set (unsigned char Direction)
+{
+ unsigned char PortBRestore = 0;
+
+ Direction &= 0x0F; 			// removing upper nibbel as it is not needed
+ PortBRestore = PORTB; 			// reading the PORTB's original status
+  be:	98 b3       	in	r25, 0x18	; 24
+ PortBRestore &= 0xF0; 			// setting lower direction nibbel to 0
+  c0:	90 7f       	andi	r25, 0xF0	; 240
+ PortBRestore |= Direction; 	// adding lower nibbel for direction command and restoring the PORTB status
+  c2:	8f 70       	andi	r24, 0x0F	; 15
+  c4:	89 2b       	or	r24, r25
+ PORTB = PortBRestore; 			// setting the command to the port
+  c6:	88 bb       	out	0x18, r24	; 24
+}
+  c8:	08 95       	ret
+
+000000ca <forward>:
+void motion_set (unsigned char Direction)
+{
+ unsigned char PortBRestore = 0;
+
+ Direction &= 0x0F; 			// removing upper nibbel as it is not needed
+ PortBRestore = PORTB; 			// reading the PORTB's original status
+  ca:	88 b3       	in	r24, 0x18	; 24
+ PortBRestore &= 0xF0; 			// setting lower direction nibbel to 0
+  cc:	80 7f       	andi	r24, 0xF0	; 240
+ PortBRestore |= Direction; 	// adding lower nibbel for direction command and restoring the PORTB status
+  ce:	86 60       	ori	r24, 0x06	; 6
+ PORTB = PortBRestore; 			// setting the command to the port
+  d0:	88 bb       	out	0x18, r24	; 24
+}
+
+void forward (void)         //both wheels forward
+{
+  motion_set(0x06);
+}
+  d2:	08 95       	ret
+
+000000d4 <backward>:
+void motion_set (unsigned char Direction)
+{
+ unsigned char PortBRestore = 0;
+
+ Direction &= 0x0F; 			// removing upper nibbel as it is not needed
+ PortBRestore = PORTB; 			// reading the PORTB's original status
+  d4:	88 b3       	in	r24, 0x18	; 24
+ PortBRestore &= 0xF0; 			// setting lower direction nibbel to 0
+  d6:	80 7f       	andi	r24, 0xF0	; 240
+ PortBRestore |= Direction; 	// adding lower nibbel for direction command and restoring the PORTB status
+  d8:	89 60       	ori	r24, 0x09	; 9
+ PORTB = PortBRestore; 			// setting the command to the port
+  da:	88 bb       	out	0x18, r24	; 24
+}
+
+void backward (void)        //both wheels backward
+{
+  motion_set(0x09);
+}
+  dc:	08 95       	ret
+
+000000de <left>:
+void motion_set (unsigned char Direction)
+{
+ unsigned char PortBRestore = 0;
+
+ Direction &= 0x0F; 			// removing upper nibbel as it is not needed
+ PortBRestore = PORTB; 			// reading the PORTB's original status
+  de:	88 b3       	in	r24, 0x18	; 24
+ PortBRestore &= 0xF0; 			// setting lower direction nibbel to 0
+  e0:	80 7f       	andi	r24, 0xF0	; 240
+ PortBRestore |= Direction; 	// adding lower nibbel for direction command and restoring the PORTB status
+  e2:	85 60       	ori	r24, 0x05	; 5
+ PORTB = PortBRestore; 			// setting the command to the port
+  e4:	88 bb       	out	0x18, r24	; 24
+}
+
+void left (void)            //Left wheel backward, Right wheel forward
+{
+  motion_set(0x05);
+}
+  e6:	08 95       	ret
+
+000000e8 <right>:
+void motion_set (unsigned char Direction)
+{
+ unsigned char PortBRestore = 0;
+
+ Direction &= 0x0F; 			// removing upper nibbel as it is not needed
+ PortBRestore = PORTB; 			// reading the PORTB's original status
+  e8:	88 b3       	in	r24, 0x18	; 24
+ PortBRestore &= 0xF0; 			// setting lower direction nibbel to 0
+  ea:	80 7f       	andi	r24, 0xF0	; 240
+ PortBRestore |= Direction; 	// adding lower nibbel for direction command and restoring the PORTB status
+  ec:	8a 60       	ori	r24, 0x0A	; 10
+ PORTB = PortBRestore; 			// setting the command to the port
+  ee:	88 bb       	out	0x18, r24	; 24
+}
+
+void right (void)           //Left wheel forward, Right wheel backward
+{   
+  motion_set(0x0A);
+}
+  f0:	08 95       	ret
+
+000000f2 <stop>:
+void motion_set (unsigned char Direction)
+{
+ unsigned char PortBRestore = 0;
+
+ Direction &= 0x0F; 			// removing upper nibbel as it is not needed
+ PortBRestore = PORTB; 			// reading the PORTB's original status
+  f2:	88 b3       	in	r24, 0x18	; 24
+ PortBRestore &= 0xF0; 			// setting lower direction nibbel to 0
+  f4:	80 7f       	andi	r24, 0xF0	; 240
+ PortBRestore |= Direction; 	// adding lower nibbel for direction command and restoring the PORTB status
+ PORTB = PortBRestore; 			// setting the command to the port
+  f6:	88 bb       	out	0x18, r24	; 24
+}
+
+void stop (void)            //hard stop
+{
+  motion_set(0x00);
+}
+  f8:	08 95       	ret
+
+000000fa <buzzer_on>:
+
+void buzzer_on (void)
+{
+ unsigned char port_restore = 0;
+ port_restore = PINC;
+  fa:	83 b3       	in	r24, 0x13	; 19
+ port_restore = port_restore | 0x08;
+  fc:	88 60       	ori	r24, 0x08	; 8
+ PORTC = port_restore;
+  fe:	85 bb       	out	0x15, r24	; 21
+}
+ 100:	08 95       	ret
+
+00000102 <buzzer_off>:
+
+void buzzer_off (void)
+{
+ unsigned char port_restore = 0;
+ port_restore = PINC;
+ 102:	83 b3       	in	r24, 0x13	; 19
+ port_restore = port_restore & 0xF7;
+ 104:	87 7f       	andi	r24, 0xF7	; 247
+ PORTC = port_restore;
+ 106:	85 bb       	out	0x15, r24	; 21
+}
+ 108:	08 95       	ret
+
+0000010a <init_devices>:
+
+void init_devices (void)
+{
+ cli();         //Clears the global interrupts
+ 10a:	f8 94       	cli
+#include <avr/interrupt.h>
+#include <util/delay.h>
+
+void motion_pin_config (void)
+{
+ DDRB = DDRB | 0x0F;   //set direction of the PORTB3 to PORTB0 pins as output
+ 10c:	87 b3       	in	r24, 0x17	; 23
+ 10e:	8f 60       	ori	r24, 0x0F	; 15
+ 110:	87 bb       	out	0x17, r24	; 23
+ PORTB = PORTB & 0xF0; // set initial value of the PORTB3 to PORTB0 pins to logic 0
+ 112:	88 b3       	in	r24, 0x18	; 24
+ 114:	80 7f       	andi	r24, 0xF0	; 240
+ 116:	88 bb       	out	0x18, r24	; 24
+ DDRD = DDRD | 0x30;   //Setting PD4 and PD5 pins as output for PWM generation
+ 118:	81 b3       	in	r24, 0x11	; 17
+ 11a:	80 63       	ori	r24, 0x30	; 48
+ 11c:	81 bb       	out	0x11, r24	; 17
+ PORTD = PORTD | 0x30; //PD4 and PD5 pins are for velocity control using PWM
+ 11e:	82 b3       	in	r24, 0x12	; 18
+ 120:	80 63       	ori	r24, 0x30	; 48
+ 122:	82 bb       	out	0x12, r24	; 18
+}
+
+void buzzer_pin_config (void)
+{
+ DDRC = DDRC | 0x08;		//Setting PORTC 3 as outpt
+ 124:	a3 9a       	sbi	0x14, 3	; 20
+ PORTC = PORTC & 0xF7;		//Setting PORTC 3 logic low to turnoff buzzer
+ 126:	ab 98       	cbi	0x15, 3	; 21
+// actual: baud rate:9600 (0.0%)
+// char size: 8 bit
+// parity: Disabled
+void uart0_init(void)
+{
+ UCSRB = 0x00; //disable while setting baud rate
+ 128:	1a b8       	out	0x0a, r1	; 10
+ UCSRA = 0x00;
+ 12a:	1b b8       	out	0x0b, r1	; 11
+ UCSRC = 0x86;
+ 12c:	86 e8       	ldi	r24, 0x86	; 134
+ 12e:	80 bd       	out	0x20, r24	; 32
+ UBRRL = 0x2F; //set baud rate lo  //67 is for 16MHz 9600 baudrate
+ 130:	8f e2       	ldi	r24, 0x2F	; 47
+ 132:	89 b9       	out	0x09, r24	; 9
+ UBRRH = 0x00; //set baud rate hi
+ 134:	10 bc       	out	0x20, r1	; 32
+ UCSRB = 0x98; 
+ 136:	88 e9       	ldi	r24, 0x98	; 152
+ 138:	8a b9       	out	0x0a, r24	; 10
+void init_devices (void)
+{
+ cli();         //Clears the global interrupts
+ port_init();
+ uart0_init();
+ sei();         //Enables the global interrupts
+ 13a:	78 94       	sei
+}
+ 13c:	08 95       	ret
+
+0000013e <__vector_11>:
+
+SIGNAL(SIG_UART_RECV) 
+{
+ 13e:	1f 92       	push	r1
+ 140:	0f 92       	push	r0
+ 142:	0f b6       	in	r0, 0x3f	; 63
+ 144:	0f 92       	push	r0
+ 146:	11 24       	eor	r1, r1
+ 148:	8f 93       	push	r24
+ unsigned char receive_data=0;   // used to save Receiving data
+
+ receive_data = UDR;			// send back the echo + 1
+ 14a:	8c b1       	in	r24, 0x0c	; 12
+ 
+ UDR = receive_data+1;           // Echo the received data plus 1
+ 14c:	8f 5f       	subi	r24, 0xFF	; 255
+ 14e:	8c b9       	out	0x0c, r24	; 12
+ 150:	81 50       	subi	r24, 0x01	; 1
+
+ if(receive_data == 0x38)        //ASCII value of 8
+ 152:	88 33       	cpi	r24, 0x38	; 56
+ 154:	21 f4       	brne	.+8      	; 0x15e <__vector_11+0x20>
+void motion_set (unsigned char Direction)
+{
+ unsigned char PortBRestore = 0;
+
+ Direction &= 0x0F; 			// removing upper nibbel as it is not needed
+ PortBRestore = PORTB; 			// reading the PORTB's original status
+ 156:	88 b3       	in	r24, 0x18	; 24
+ PortBRestore &= 0xF0; 			// setting lower direction nibbel to 0
+ 158:	80 7f       	andi	r24, 0xF0	; 240
+ PortBRestore |= Direction; 	// adding lower nibbel for direction command and restoring the PORTB status
+ 15a:	86 60       	ori	r24, 0x06	; 6
+ 15c:	11 c0       	rjmp	.+34     	; 0x180 <__vector_11+0x42>
+ if(receive_data == 0x38)        //ASCII value of 8
+ {
+	forward();                   //forward
+ }
+
+ if(receive_data == 0x32)        //ASCII value of 2
+ 15e:	82 33       	cpi	r24, 0x32	; 50
+ 160:	21 f4       	brne	.+8      	; 0x16a <__vector_11+0x2c>
+void motion_set (unsigned char Direction)
+{
+ unsigned char PortBRestore = 0;
+
+ Direction &= 0x0F; 			// removing upper nibbel as it is not needed
+ PortBRestore = PORTB; 			// reading the PORTB's original status
+ 162:	88 b3       	in	r24, 0x18	; 24
+ PortBRestore &= 0xF0; 			// setting lower direction nibbel to 0
+ 164:	80 7f       	andi	r24, 0xF0	; 240
+ PortBRestore |= Direction; 	// adding lower nibbel for direction command and restoring the PORTB status
+ 166:	89 60       	ori	r24, 0x09	; 9
+ 168:	0b c0       	rjmp	.+22     	; 0x180 <__vector_11+0x42>
+ if(receive_data == 0x32)        //ASCII value of 2
+ {
+	backward();                  //back
+ }
+
+ if(receive_data == 0x34)        //ASCII value of 4
+ 16a:	84 33       	cpi	r24, 0x34	; 52
+ 16c:	21 f4       	brne	.+8      	; 0x176 <__vector_11+0x38>
+void motion_set (unsigned char Direction)
+{
+ unsigned char PortBRestore = 0;
+
+ Direction &= 0x0F; 			// removing upper nibbel as it is not needed
+ PortBRestore = PORTB; 			// reading the PORTB's original status
+ 16e:	88 b3       	in	r24, 0x18	; 24
+ PortBRestore &= 0xF0; 			// setting lower direction nibbel to 0
+ 170:	80 7f       	andi	r24, 0xF0	; 240
+ PortBRestore |= Direction; 	// adding lower nibbel for direction command and restoring the PORTB status
+ 172:	85 60       	ori	r24, 0x05	; 5
+ 174:	05 c0       	rjmp	.+10     	; 0x180 <__vector_11+0x42>
+ if(receive_data == 0x34)        //ASCII value of 4
+ {
+	left();                      //left
+ }
+
+ if(receive_data == 0x36)        //ASCII value of 6
+ 176:	86 33       	cpi	r24, 0x36	; 54
+ 178:	29 f4       	brne	.+10     	; 0x184 <__vector_11+0x46>
+void motion_set (unsigned char Direction)
+{
+ unsigned char PortBRestore = 0;
+
+ Direction &= 0x0F; 			// removing upper nibbel as it is not needed
+ PortBRestore = PORTB; 			// reading the PORTB's original status
+ 17a:	88 b3       	in	r24, 0x18	; 24
+ PortBRestore &= 0xF0; 			// setting lower direction nibbel to 0
+ 17c:	80 7f       	andi	r24, 0xF0	; 240
+ PortBRestore |= Direction; 	// adding lower nibbel for direction command and restoring the PORTB status
+ 17e:	8a 60       	ori	r24, 0x0A	; 10
+ PORTB = PortBRestore; 			// setting the command to the port
+ 180:	88 bb       	out	0x18, r24	; 24
+ 182:	0f c0       	rjmp	.+30     	; 0x1a2 <__vector_11+0x64>
+ if(receive_data == 0x36)        //ASCII value of 6
+ {
+	right();                     //right
+ }
+
+ if(receive_data == 0x35)        //ASCII value of 5
+ 184:	85 33       	cpi	r24, 0x35	; 53
+ 186:	19 f4       	brne	.+6      	; 0x18e <__vector_11+0x50>
+void motion_set (unsigned char Direction)
+{
+ unsigned char PortBRestore = 0;
+
+ Direction &= 0x0F; 			// removing upper nibbel as it is not needed
+ PortBRestore = PORTB; 			// reading the PORTB's original status
+ 188:	88 b3       	in	r24, 0x18	; 24
+ PortBRestore &= 0xF0; 			// setting lower direction nibbel to 0
+ 18a:	80 7f       	andi	r24, 0xF0	; 240
+ 18c:	f9 cf       	rjmp	.-14     	; 0x180 <__vector_11+0x42>
+ if(receive_data == 0x35)        //ASCII value of 5
+ {
+	stop();                      // hard stop
+ }
+
+ if(receive_data == 0x37)        //ASCII value of 7
+ 18e:	87 33       	cpi	r24, 0x37	; 55
+ 190:	19 f4       	brne	.+6      	; 0x198 <__vector_11+0x5a>
+}
+
+void buzzer_on (void)
+{
+ unsigned char port_restore = 0;
+ port_restore = PINC;
+ 192:	83 b3       	in	r24, 0x13	; 19
+ port_restore = port_restore | 0x08;
+ 194:	88 60       	ori	r24, 0x08	; 8
+ 196:	04 c0       	rjmp	.+8      	; 0x1a0 <__vector_11+0x62>
+ if(receive_data == 0x37)        //ASCII value of 7
+ {
+	buzzer_on();
+ }
+
+ if(receive_data == 0x39)        //ASCII value of 9
+ 198:	89 33       	cpi	r24, 0x39	; 57
+ 19a:	19 f4       	brne	.+6      	; 0x1a2 <__vector_11+0x64>
+}
+
+void buzzer_off (void)
+{
+ unsigned char port_restore = 0;
+ port_restore = PINC;
+ 19c:	83 b3       	in	r24, 0x13	; 19
+ port_restore = port_restore & 0xF7;
+ 19e:	87 7f       	andi	r24, 0xF7	; 247
+ PORTC = port_restore;
+ 1a0:	85 bb       	out	0x15, r24	; 21
+
+ if(receive_data == 0x39)        //ASCII value of 9
+ {
+	buzzer_off();
+ }
+}
+ 1a2:	8f 91       	pop	r24
+ 1a4:	0f 90       	pop	r0
+ 1a6:	0f be       	out	0x3f, r0	; 63
+ 1a8:	0f 90       	pop	r0
+ 1aa:	1f 90       	pop	r1
+ 1ac:	18 95       	reti
+
+000001ae <main>:
+
+//Main Function
+int main()
+{
+	init_devices();
+ 1ae:	0e 94 85 00 	call	0x10a	; 0x10a <init_devices>
+ 1b2:	ff cf       	rjmp	.-2      	; 0x1b2 <main+0x4>
+
+000001b4 <_exit>:
+ 1b4:	f8 94       	cli
+
+000001b6 <__stop_program>:
+ 1b6:	ff cf       	rjmp	.-2      	; 0x1b6 <__stop_program>

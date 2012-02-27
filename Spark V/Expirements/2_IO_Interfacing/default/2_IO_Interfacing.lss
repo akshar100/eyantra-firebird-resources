@@ -1,0 +1,257 @@
+
+2_IO_Interfacing.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000166  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .debug_aranges 00000020  00000000  00000000  000001ba  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  2 .debug_pubnames 00000085  00000000  00000000  000001da  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_info   00000114  00000000  00000000  0000025f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_abbrev 0000007c  00000000  00000000  00000373  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_line   0000016a  00000000  00000000  000003ef  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_frame  00000080  00000000  00000000  0000055c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_str    00000114  00000000  00000000  000005dc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   8:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  10:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  14:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  18:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  1c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  20:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  24:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  28:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  2c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  30:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  34:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  38:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  3c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  40:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  44:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  48:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  4c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  50:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+  60:	0e 94 a0 00 	call	0x140	; 0x140 <main>
+  64:	0c 94 b1 00 	jmp	0x162	; 0x162 <_exit>
+
+00000068 <__bad_interrupt>:
+  68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000006c <buzzer_pin_config>:
+#include <avr/interrupt.h>
+#include <util/delay.h>
+
+//Function to initialize Buzzer 
+void buzzer_pin_config (void)
+{
+  6c:	df 93       	push	r29
+  6e:	cf 93       	push	r28
+  70:	cd b7       	in	r28, 0x3d	; 61
+  72:	de b7       	in	r29, 0x3e	; 62
+ DDRC = DDRC | 0x08;		//Setting PORTC 3 as outpt
+  74:	a4 e3       	ldi	r26, 0x34	; 52
+  76:	b0 e0       	ldi	r27, 0x00	; 0
+  78:	e4 e3       	ldi	r30, 0x34	; 52
+  7a:	f0 e0       	ldi	r31, 0x00	; 0
+  7c:	80 81       	ld	r24, Z
+  7e:	88 60       	ori	r24, 0x08	; 8
+  80:	8c 93       	st	X, r24
+ PORTC = PORTC & 0xF7;		//Setting PORTC 3 logic low to turnoff buzzer
+  82:	a5 e3       	ldi	r26, 0x35	; 53
+  84:	b0 e0       	ldi	r27, 0x00	; 0
+  86:	e5 e3       	ldi	r30, 0x35	; 53
+  88:	f0 e0       	ldi	r31, 0x00	; 0
+  8a:	80 81       	ld	r24, Z
+  8c:	87 7f       	andi	r24, 0xF7	; 247
+  8e:	8c 93       	st	X, r24
+}
+  90:	cf 91       	pop	r28
+  92:	df 91       	pop	r29
+  94:	08 95       	ret
+
+00000096 <input_switch_config>:
+
+//Function to configure Interrupt switch
+void input_switch_config (void)
+{
+  96:	df 93       	push	r29
+  98:	cf 93       	push	r28
+  9a:	cd b7       	in	r28, 0x3d	; 61
+  9c:	de b7       	in	r29, 0x3e	; 62
+ DDRD = DDRD & 0x7F;       //PORTD 7 pin set as input  
+  9e:	a1 e3       	ldi	r26, 0x31	; 49
+  a0:	b0 e0       	ldi	r27, 0x00	; 0
+  a2:	e1 e3       	ldi	r30, 0x31	; 49
+  a4:	f0 e0       	ldi	r31, 0x00	; 0
+  a6:	80 81       	ld	r24, Z
+  a8:	8f 77       	andi	r24, 0x7F	; 127
+  aa:	8c 93       	st	X, r24
+ PORTD = PORTD | 0x80;     //PORTD 7 internal pull-up enabled
+  ac:	a2 e3       	ldi	r26, 0x32	; 50
+  ae:	b0 e0       	ldi	r27, 0x00	; 0
+  b0:	e2 e3       	ldi	r30, 0x32	; 50
+  b2:	f0 e0       	ldi	r31, 0x00	; 0
+  b4:	80 81       	ld	r24, Z
+  b6:	80 68       	ori	r24, 0x80	; 128
+  b8:	8c 93       	st	X, r24
+}
+  ba:	cf 91       	pop	r28
+  bc:	df 91       	pop	r29
+  be:	08 95       	ret
+
+000000c0 <port_init>:
+
+//Function to Initialize PORTS
+void port_init (void)
+{
+  c0:	df 93       	push	r29
+  c2:	cf 93       	push	r28
+  c4:	cd b7       	in	r28, 0x3d	; 61
+  c6:	de b7       	in	r29, 0x3e	; 62
+ buzzer_pin_config();
+  c8:	0e 94 36 00 	call	0x6c	; 0x6c <buzzer_pin_config>
+ input_switch_config();
+  cc:	0e 94 4b 00 	call	0x96	; 0x96 <input_switch_config>
+}
+  d0:	cf 91       	pop	r28
+  d2:	df 91       	pop	r29
+  d4:	08 95       	ret
+
+000000d6 <buzzer_on>:
+
+void buzzer_on (void)
+{
+  d6:	df 93       	push	r29
+  d8:	cf 93       	push	r28
+  da:	0f 92       	push	r0
+  dc:	cd b7       	in	r28, 0x3d	; 61
+  de:	de b7       	in	r29, 0x3e	; 62
+ unsigned char port_restore = 0;
+  e0:	19 82       	std	Y+1, r1	; 0x01
+ port_restore = PINC;
+  e2:	e3 e3       	ldi	r30, 0x33	; 51
+  e4:	f0 e0       	ldi	r31, 0x00	; 0
+  e6:	80 81       	ld	r24, Z
+  e8:	89 83       	std	Y+1, r24	; 0x01
+ port_restore = port_restore | 0x08;
+  ea:	89 81       	ldd	r24, Y+1	; 0x01
+  ec:	88 60       	ori	r24, 0x08	; 8
+  ee:	89 83       	std	Y+1, r24	; 0x01
+ PORTC = port_restore;
+  f0:	e5 e3       	ldi	r30, 0x35	; 53
+  f2:	f0 e0       	ldi	r31, 0x00	; 0
+  f4:	89 81       	ldd	r24, Y+1	; 0x01
+  f6:	80 83       	st	Z, r24
+}
+  f8:	0f 90       	pop	r0
+  fa:	cf 91       	pop	r28
+  fc:	df 91       	pop	r29
+  fe:	08 95       	ret
+
+00000100 <buzzer_off>:
+
+void buzzer_off (void)
+{
+ 100:	df 93       	push	r29
+ 102:	cf 93       	push	r28
+ 104:	0f 92       	push	r0
+ 106:	cd b7       	in	r28, 0x3d	; 61
+ 108:	de b7       	in	r29, 0x3e	; 62
+ unsigned char port_restore = 0;
+ 10a:	19 82       	std	Y+1, r1	; 0x01
+ port_restore = PINC;
+ 10c:	e3 e3       	ldi	r30, 0x33	; 51
+ 10e:	f0 e0       	ldi	r31, 0x00	; 0
+ 110:	80 81       	ld	r24, Z
+ 112:	89 83       	std	Y+1, r24	; 0x01
+ port_restore = port_restore & 0xF7;
+ 114:	89 81       	ldd	r24, Y+1	; 0x01
+ 116:	87 7f       	andi	r24, 0xF7	; 247
+ 118:	89 83       	std	Y+1, r24	; 0x01
+ PORTC = port_restore;
+ 11a:	e5 e3       	ldi	r30, 0x35	; 53
+ 11c:	f0 e0       	ldi	r31, 0x00	; 0
+ 11e:	89 81       	ldd	r24, Y+1	; 0x01
+ 120:	80 83       	st	Z, r24
+}
+ 122:	0f 90       	pop	r0
+ 124:	cf 91       	pop	r28
+ 126:	df 91       	pop	r29
+ 128:	08 95       	ret
+
+0000012a <init_devices>:
+
+void init_devices (void)
+{
+ 12a:	df 93       	push	r29
+ 12c:	cf 93       	push	r28
+ 12e:	cd b7       	in	r28, 0x3d	; 61
+ 130:	de b7       	in	r29, 0x3e	; 62
+ cli();             //Clears the global interrupts
+ 132:	f8 94       	cli
+ port_init();
+ 134:	0e 94 60 00 	call	0xc0	; 0xc0 <port_init>
+ sei();             //Enables the global interrupts
+ 138:	78 94       	sei
+}
+ 13a:	cf 91       	pop	r28
+ 13c:	df 91       	pop	r29
+ 13e:	08 95       	ret
+
+00000140 <main>:
+
+//Main Function
+int main(void)
+{
+ 140:	df 93       	push	r29
+ 142:	cf 93       	push	r28
+ 144:	cd b7       	in	r28, 0x3d	; 61
+ 146:	de b7       	in	r29, 0x3e	; 62
+	init_devices();
+ 148:	0e 94 95 00 	call	0x12a	; 0x12a <init_devices>
+	while(1)
+	{
+	if((PIND & 0x80) == 0x80) //switch is not pressed
+ 14c:	e0 e3       	ldi	r30, 0x30	; 48
+ 14e:	f0 e0       	ldi	r31, 0x00	; 0
+ 150:	80 81       	ld	r24, Z
+ 152:	88 23       	and	r24, r24
+ 154:	1c f4       	brge	.+6      	; 0x15c <main+0x1c>
+		{
+			buzzer_off();     //Turn off buzzer
+ 156:	0e 94 80 00 	call	0x100	; 0x100 <buzzer_off>
+ 15a:	f8 cf       	rjmp	.-16     	; 0x14c <main+0xc>
+		}
+	else
+		{
+			
+			buzzer_on();      //Turn on buzzer
+ 15c:	0e 94 6b 00 	call	0xd6	; 0xd6 <buzzer_on>
+ 160:	f5 cf       	rjmp	.-22     	; 0x14c <main+0xc>
+
+00000162 <_exit>:
+ 162:	f8 94       	cli
+
+00000164 <__stop_program>:
+ 164:	ff cf       	rjmp	.-2      	; 0x164 <__stop_program>
